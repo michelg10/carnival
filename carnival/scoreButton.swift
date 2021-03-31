@@ -8,28 +8,41 @@
 import SwiftUI
 
 struct scoreButton: View {
-    var value: Int
+    var index: Int
     var active: Bool
-    var karen: carnivalKaren
+    var editable: Bool
+    @ObservedObject var karen: carnivalKaren
     var body: some View {
         let circleDist:CGFloat=5
         HStack {
             Button(action: {
-                karen.modifyScore(val: value)
+                if editable {
+                    karen.scoreaddpresets[index] *= -1
+                } else {
+                    karen.modifyScore(val: karen.scoreaddpresets[index])
+                }
             }, label: {
                 ZStack {
                     Circle()
                         .frame(width:41-circleDist,height:41-circleDist)
-                        .foregroundColor(.init(active ? (value < 0 ? "minus" : "plus") : "inactivemodbuttons"))
-                    Image(systemName: value < 0 ? "minus" : "plus")
+                        .foregroundColor(.init(active ? (karen.scoreaddpresets[index] < 0 ? "minus" : "plus") : "inactivemodbuttons"))
+                    Image(systemName: karen.scoreaddpresets[index] < 0 ? "minus" : "plus")
                         .font(.system(size: 18, weight: .medium, design: .default))
                         .foregroundColor(.init("ViewFloat"))
                 }
             }).padding(.leading,circleDist/2)
             .buttonStyle(topBarButtonStyle())
             Spacer()
-            Text(String(abs(value)))
-                .font(.system(size: 18, weight: .medium, design: .rounded))
+            if editable {
+                liveUpdatingTextView(text: Binding(get: {
+                    String(abs(karen.scoreaddpresets[index]))
+                }, set: { (val) in
+                    karen.scoreaddpresets[index]=abs(Int(val) ?? 0)
+                }), font: .systemFont(ofSize: 18, weight: .medium), placeholder: "Pts", textAlignment: .center)
+            } else {
+                Text(String(abs(karen.scoreaddpresets[index])))
+                    .font(.system(size: 18, weight: .medium, design: .default))
+            }
             Spacer()
         }.frame(height:41)
         .background(
@@ -42,6 +55,6 @@ struct scoreButton: View {
 
 struct scoreButton_Previews: PreviewProvider {
     static var previews: some View {
-        scoreButton(value: -50, active: true, karen: carnivalKaren(isPreview: true))
+        scoreButton(index: 0, active: true, editable: false, karen: carnivalKaren(isPreview: true))
     }
 }

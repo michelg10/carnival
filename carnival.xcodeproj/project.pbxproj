@@ -12,6 +12,8 @@
 		8432E40A394E4029762CD30B /* Pods_carnivalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA476EDFB40CFD47D7446336 /* Pods_carnivalTests.framework */; };
 		F0B7EE822613F6DE00363DE5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE812613F6DE00363DE5 /* ListItem.swift */; };
 		F0B7EE9126146A9300363DE5 /* scoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE9026146A9300363DE5 /* scoreButton.swift */; };
+		F0B7EE962614941400363DE5 /* scoreEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE952614941400363DE5 /* scoreEditView.swift */; };
+		F0B7EE9B26149AB800363DE5 /* modalDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE9A26149AB800363DE5 /* modalDismiss.swift */; };
 		F0D65379261352610086453D /* carnivalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D65378261352610086453D /* carnivalApp.swift */; };
 		F0D6537B261352610086453D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6537A261352610086453D /* ContentView.swift */; };
 		F0D6537D261352620086453D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537C261352620086453D /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival.debug.xcconfig"; path = "Target Support Files/Pods-carnival/Pods-carnival.debug.xcconfig"; sourceTree = "<group>"; };
 		F0B7EE812613F6DE00363DE5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		F0B7EE9026146A9300363DE5 /* scoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreButton.swift; sourceTree = "<group>"; };
+		F0B7EE952614941400363DE5 /* scoreEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreEditView.swift; sourceTree = "<group>"; };
+		F0B7EE9A26149AB800363DE5 /* modalDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalDismiss.swift; sourceTree = "<group>"; };
 		F0D65375261352600086453D /* carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D65378261352610086453D /* carnivalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalApp.swift; sourceTree = "<group>"; };
 		F0D6537A261352610086453D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				F0D6537A261352610086453D /* ContentView.swift */,
 				F0B7EE812613F6DE00363DE5 /* ListItem.swift */,
 				F0D653A6261352770086453D /* AddScoreView.swift */,
+				F0B7EE952614941400363DE5 /* scoreEditView.swift */,
+				F0B7EE9A26149AB800363DE5 /* modalDismiss.swift */,
 				F0B7EE9026146A9300363DE5 /* scoreButton.swift */,
 				F0D6537C261352620086453D /* Assets.xcassets */,
 				F0D65381261352620086453D /* Info.plist */,
@@ -443,10 +449,12 @@
 				F0B7EE9126146A9300363DE5 /* scoreButton.swift in Sources */,
 				F0B7EE822613F6DE00363DE5 /* ListItem.swift in Sources */,
 				F0D653B1261352AF0086453D /* previewData.swift in Sources */,
+				F0B7EE962614941400363DE5 /* scoreEditView.swift in Sources */,
 				F0D653A7261352770086453D /* AddScoreView.swift in Sources */,
 				F0D6537B261352610086453D /* ContentView.swift in Sources */,
 				F0D65379261352610086453D /* carnivalApp.swift in Sources */,
 				F0D653AC261352910086453D /* carnivalKaren.swift in Sources */,
+				F0B7EE9B26149AB800363DE5 /* modalDismiss.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

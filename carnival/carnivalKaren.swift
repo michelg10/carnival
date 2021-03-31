@@ -31,15 +31,68 @@ struct ParticipantInfo {
 let deltaTimeInterval: Double = -600
 
 class carnivalKaren: ObservableObject {
-    var scoreaddpresets=[10,20,30,-10,-20,-30]
+    @Published var scoreaddpresets=[10,20,30,-10,-20,-30]
     var participantMap=[String: String]() // the participants map that maps a participant ID to a participant name, also retrieved from the server
     var entries: [Entry]=[] // the entries retrieved from the server
     @Published var selectedParticipant: String? // the participant currently selected within the score adding view
     
-    var participantMasterTable: [ParticipantInfo]=[] //master table, sorted by the rank
+    @Published var participantMasterTable: [ParticipantInfo]=[] //master table, sorted by the rank
+    
+    var playerSearch=""
+    
+    @Published var myName: String = "Unnamed"
+    
+    //TODO: Invalidate selectedparticipant with every search
     
     func modifyScore(val: Int) {
+        if selectedParticipant == nil {
+            return
+        }
+        do {
+            let nxtScore=LCObject(className: "entry")
+            try nxtScore.set("marginalScore", value: val)
+            try nxtScore.set("personID", value: selectedParticipant!)
+            try nxtScore.set("addSource", value: myName)
+            
+            nxtScore.save { [self] result in
+                switch result {
+                case .success:
+                    entries.append(.init(lastUpdated: Date(), marginalScore: val, personID: selectedParticipant!, addSource: myName))
+                    selectedParticipant=nil
+                    DispatchQueue.main.async {
+                        regenerateMaster()
+                    }
+                    break
+                case .failure(error: let error):
+                    // Execute any logic that should take place if the save fails
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func regenerateMaster() {
+        participantMasterTable.removeAll()
         
+        // create display leaderboards
+        let currentMap=generateOrder(validDate: Date())
+        let lastMap=generateOrder(validDate: Date().advanced(by: deltaTimeInterval))
+        let sortedInfo=currentMap.sorted { (a, b) -> Bool in
+            if a.value > b.value {
+                return true
+            } else if a.value < b.value {
+                return false
+            }
+            return a.key>b.key
+        }
+        print(sortedInfo)
+        for i in 0..<sortedInfo.count {
+            participantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastMap[sortedInfo[i].key] ?? -1))
+        }
+        print("MSTR ",participantMasterTable)
+        searchForParticipant(val: playerSearch)
     }
     
     func updateData() { // purpose: Update the master participant table
@@ -67,7 +120,7 @@ class carnivalKaren: ObservableObject {
         if entriesObj != nil {
             for i in 0..<entriesObj!.count {
                 let marginalScore = entriesObj![i]["marginalScore"]?.intValue
-                let person=entriesObj![i]["person"]?.stringValue
+                let person=entriesObj![i]["personID"]?.stringValue
                 let addSource=entriesObj![i]["addSource"]?.stringValue
                 if marginalScore != nil && person != nil && addSource != nil {
                     nxtEntries.append(.init(lastUpdated: participantsObj![i].updatedAt!.value, marginalScore: marginalScore!, personID: person!, addSource: addSource!))
@@ -78,21 +131,8 @@ class carnivalKaren: ObservableObject {
             entries=nxtEntries
         }
         
-        participantMasterTable.removeAll()
-        
-        // create display leaderboards
-        let currentMap=generateOrder(validDate: Date())
-        let lastMap=generateOrder(validDate: Date().advanced(by: deltaTimeInterval))
-        let sortedInfo=currentMap.sorted { (a, b) -> Bool in
-            if a.value > b.value {
-                return true
-            } else if a.value < b.value {
-                return false
-            }
-            return a.key>b.key
-        }
-        for i in 0..<sortedInfo.count {
-            participantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastMap[sortedInfo[i].key] ?? -1))
+        DispatchQueue.main.async { [self] in
+            regenerateMaster()
         }
     }
     
@@ -117,8 +157,11 @@ class carnivalKaren: ObservableObject {
             orderGen[i]=0
         }
         for i in entries {
+            print("Dealing with entry, score for \(i.personID), count \(i.marginalScore), submitted \(i.lastUpdated)")
             if i.lastUpdated<=validDate {
-                orderGen[i.personID]=orderGen[i.personID] ?? 0 + i.marginalScore
+                print("Entry valid")
+                orderGen[i.personID]=(orderGen[i.personID] ?? 0) + i.marginalScore
+                print(orderGen)
             }
         }
         return orderGen
@@ -158,7 +201,6 @@ class carnivalKaren: ObservableObject {
             }
             DispatchQueue.global().async { [self] in
                 updateData()
-                searchForParticipant(val: "")
             }
         }
     }

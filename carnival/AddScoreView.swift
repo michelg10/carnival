@@ -73,18 +73,19 @@ struct topBarButtonStyle: ButtonStyle {
 
 struct AddScoreView: View {
     @ObservedObject var karen: carnivalKaren
-    @State var playerSearch=""
+    @State var editViewPresent=false
     var body: some View {
         VStack(spacing:0) {
             Text("Add Score")
                 .font(.system(size: 32, weight: .semibold, design: .default))
-                .padding(.bottom,13)
                 .padding(.top,10)
+            Text("Posting as \(karen.myName)")
+                .padding(.bottom,13)
             liveUpdatingTextView(text: Binding(get: {
-                playerSearch
+                karen.playerSearch
             }, set: { (val) in
-                playerSearch=val
-                karen.searchForParticipant(val: playerSearch)
+                karen.playerSearch=val
+                karen.searchForParticipant(val: karen.playerSearch)
             }), font: .systemFont(ofSize: 18, weight: .semibold), placeholder: "Search participants...", textAlignment: .center)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.vertical,10)
@@ -138,22 +139,29 @@ struct AddScoreView: View {
                     HStack(spacing: 8) {
                         ForEach((0..<3), id:\.self) { index2 in
                             if index*3+index2<karen.scoreaddpresets.count {
-                                scoreButton(value: karen.scoreaddpresets[index*3+index2],active: karen.selectedParticipant != nil, karen: karen)
+                                scoreButton(index: index*3+index2,active: karen.selectedParticipant != nil, editable: false, karen: karen)
                             }
                         }
                     }
                 }
             }.padding(.horizontal,22)
             .padding(.bottom,22)
-            ZStack {
-                Rectangle()
-                    .frame(width:110,height:40)
-                    .cornerRadius(.greatestFiniteMagnitude)
-                    .foregroundColor(.init("EditButton"))
-                Text("Edit")
-                    .font(.system(size: 18, weight: .medium, design: .default))
-                    .foregroundColor(.init("EditText"))
-            }.padding(.bottom,16)
+            Button(action: {
+                editViewPresent=true
+            }, label: {
+                ZStack {
+                    Rectangle()
+                        .frame(width:110,height:40)
+                        .cornerRadius(.greatestFiniteMagnitude)
+                        .foregroundColor(.init("EditButton"))
+                    Text("Edit")
+                        .font(.system(size: 18, weight: .medium, design: .default))
+                        .foregroundColor(.init("EditText"))
+                }.padding(.bottom,16)
+            }).buttonStyle(topBarButtonStyle())
+            .sheet(isPresented: $editViewPresent, content: {
+                scoreEditView(karen: karen)
+            })
         }
     }
 }
