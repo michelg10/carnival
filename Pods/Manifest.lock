@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.4.1)
+  - GRDB.swift (4.14.0):
+    - GRDB.swift/standard (= 4.14.0)
+  - GRDB.swift/standard (4.14.0)
+  - LeanCloud (17.8.0):
+    - LeanCloud/RTM (= 17.8.0)
+  - LeanCloud/Foundation (17.8.0):
+    - Alamofire (~> 5.4)
+  - LeanCloud/RTM (17.8.0):
+    - GRDB.swift (~> 4.14)
+    - LeanCloud/Foundation (= 17.8.0)
+    - SwiftProtobuf (~> 1.15)
+  - SwiftProtobuf (1.15.0)
+
+DEPENDENCIES:
+  - LeanCloud
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - GRDB.swift
+    - LeanCloud
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  GRDB.swift: 8cc3ab7c8b8b4ac1761deb8dca4b51c1c9d429f8
+  LeanCloud: ff95ea8076a30e10358542ecaa53e87c4308c8bd
+  SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
+
+PODFILE CHECKSUM: 49c2e935dae7ec1e99a5484f419e3ec803f99294
+
+COCOAPODS: 1.10.1

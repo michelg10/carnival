@@ -1,0 +1,777 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A79B39636B281183DCB5515 /* Pods_carnival.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E323C27E9CE167BD725A3A /* Pods_carnival.framework */; };
+		8417A420574A7DAAB4894F1C /* Pods_carnival_carnivalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A17BFCA239E6EDE4C5E776F /* Pods_carnival_carnivalUITests.framework */; };
+		8432E40A394E4029762CD30B /* Pods_carnivalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA476EDFB40CFD47D7446336 /* Pods_carnivalTests.framework */; };
+		F0B7EE822613F6DE00363DE5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE812613F6DE00363DE5 /* ListItem.swift */; };
+		F0B7EE9126146A9300363DE5 /* scoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE9026146A9300363DE5 /* scoreButton.swift */; };
+		F0D65379261352610086453D /* carnivalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D65378261352610086453D /* carnivalApp.swift */; };
+		F0D6537B261352610086453D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6537A261352610086453D /* ContentView.swift */; };
+		F0D6537D261352620086453D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537C261352620086453D /* Assets.xcassets */; };
+		F0D65380261352620086453D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537F261352620086453D /* Preview Assets.xcassets */; };
+		F0D6538B261352630086453D /* carnivalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6538A261352630086453D /* carnivalTests.swift */; };
+		F0D65396261352630086453D /* carnivalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D65395261352630086453D /* carnivalUITests.swift */; };
+		F0D653A7261352770086453D /* AddScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653A6261352770086453D /* AddScoreView.swift */; };
+		F0D653AC261352910086453D /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
+		F0D653B1261352AF0086453D /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0D65387261352630086453D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0D6536D261352600086453D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0D65374261352600086453D;
+			remoteInfo = carnival;
+		};
+		F0D65392261352630086453D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0D6536D261352600086453D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0D65374261352600086453D;
+			remoteInfo = carnival;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A17BFCA239E6EDE4C5E776F /* Pods_carnival_carnivalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnival_carnivalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		436EB9FCFC6F9AA47B6D1DAD /* Pods-carnivalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivalTests.release.xcconfig"; path = "Target Support Files/Pods-carnivalTests/Pods-carnivalTests.release.xcconfig"; sourceTree = "<group>"; };
+		9863AE450C0264BCF22308F6 /* Pods-carnival.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival.release.xcconfig"; path = "Target Support Files/Pods-carnival/Pods-carnival.release.xcconfig"; sourceTree = "<group>"; };
+		A624A3D6EF182CEBA942587A /* Pods-carnivalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivalTests.debug.xcconfig"; path = "Target Support Files/Pods-carnivalTests/Pods-carnivalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C0FC50C6235E2DA552F8B5A5 /* Pods-carnival-carnivalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival-carnivalUITests.debug.xcconfig"; path = "Target Support Files/Pods-carnival-carnivalUITests/Pods-carnival-carnivalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA476EDFB40CFD47D7446336 /* Pods_carnivalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnivalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDAA8602AD427EF12E2DBCE2 /* Pods-carnival-carnivalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival-carnivalUITests.release.xcconfig"; path = "Target Support Files/Pods-carnival-carnivalUITests/Pods-carnival-carnivalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival.debug.xcconfig"; path = "Target Support Files/Pods-carnival/Pods-carnival.debug.xcconfig"; sourceTree = "<group>"; };
+		F0B7EE812613F6DE00363DE5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		F0B7EE9026146A9300363DE5 /* scoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreButton.swift; sourceTree = "<group>"; };
+		F0D65375261352600086453D /* carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D65378261352610086453D /* carnivalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalApp.swift; sourceTree = "<group>"; };
+		F0D6537A261352610086453D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F0D6537C261352620086453D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0D6537F261352620086453D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F0D65381261352620086453D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D65386261352630086453D /* carnivalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = carnivalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D6538A261352630086453D /* carnivalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalTests.swift; sourceTree = "<group>"; };
+		F0D6538C261352630086453D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D65391261352630086453D /* carnivalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = carnivalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D65395261352630086453D /* carnivalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalUITests.swift; sourceTree = "<group>"; };
+		F0D65397261352630086453D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D653A6261352770086453D /* AddScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScoreView.swift; sourceTree = "<group>"; };
+		F0D653AB261352910086453D /* carnivalKaren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalKaren.swift; sourceTree = "<group>"; };
+		F0D653B0261352AF0086453D /* previewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = previewData.swift; sourceTree = "<group>"; };
+		F1E323C27E9CE167BD725A3A /* Pods_carnival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnival.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0D65372261352600086453D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A79B39636B281183DCB5515 /* Pods_carnival.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D65383261352630086453D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8432E40A394E4029762CD30B /* Pods_carnivalTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D6538E261352630086453D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8417A420574A7DAAB4894F1C /* Pods_carnival_carnivalUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		124A0A3EE72B824F8AFF2F97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1E323C27E9CE167BD725A3A /* Pods_carnival.framework */,
+				3A17BFCA239E6EDE4C5E776F /* Pods_carnival_carnivalUITests.framework */,
+				CA476EDFB40CFD47D7446336 /* Pods_carnivalTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5EF9DBE7548E7D38D019ED7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */,
+				9863AE450C0264BCF22308F6 /* Pods-carnival.release.xcconfig */,
+				C0FC50C6235E2DA552F8B5A5 /* Pods-carnival-carnivalUITests.debug.xcconfig */,
+				DDAA8602AD427EF12E2DBCE2 /* Pods-carnival-carnivalUITests.release.xcconfig */,
+				A624A3D6EF182CEBA942587A /* Pods-carnivalTests.debug.xcconfig */,
+				436EB9FCFC6F9AA47B6D1DAD /* Pods-carnivalTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F0D6536C261352600086453D = {
+			isa = PBXGroup;
+			children = (
+				F0D65377261352600086453D /* carnival */,
+				F0D65389261352630086453D /* carnivalTests */,
+				F0D65394261352630086453D /* carnivalUITests */,
+				F0D65376261352600086453D /* Products */,
+				B5EF9DBE7548E7D38D019ED7 /* Pods */,
+				124A0A3EE72B824F8AFF2F97 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F0D65376261352600086453D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0D65375261352600086453D /* carnival.app */,
+				F0D65386261352630086453D /* carnivalTests.xctest */,
+				F0D65391261352630086453D /* carnivalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0D65377261352600086453D /* carnival */ = {
+			isa = PBXGroup;
+			children = (
+				F0D65378261352610086453D /* carnivalApp.swift */,
+				F0D653AB261352910086453D /* carnivalKaren.swift */,
+				F0D653B0261352AF0086453D /* previewData.swift */,
+				F0D6537A261352610086453D /* ContentView.swift */,
+				F0B7EE812613F6DE00363DE5 /* ListItem.swift */,
+				F0D653A6261352770086453D /* AddScoreView.swift */,
+				F0B7EE9026146A9300363DE5 /* scoreButton.swift */,
+				F0D6537C261352620086453D /* Assets.xcassets */,
+				F0D65381261352620086453D /* Info.plist */,
+				F0D6537E261352620086453D /* Preview Content */,
+			);
+			path = carnival;
+			sourceTree = "<group>";
+		};
+		F0D6537E261352620086453D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F0D6537F261352620086453D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F0D65389261352630086453D /* carnivalTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0D6538A261352630086453D /* carnivalTests.swift */,
+				F0D6538C261352630086453D /* Info.plist */,
+			);
+			path = carnivalTests;
+			sourceTree = "<group>";
+		};
+		F0D65394261352630086453D /* carnivalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F0D65395261352630086453D /* carnivalUITests.swift */,
+				F0D65397261352630086453D /* Info.plist */,
+			);
+			path = carnivalUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0D65374261352600086453D /* carnival */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D6539A261352630086453D /* Build configuration list for PBXNativeTarget "carnival" */;
+			buildPhases = (
+				309A95AE0E44513005D2038A /* [CP] Check Pods Manifest.lock */,
+				F0D65371261352600086453D /* Sources */,
+				F0D65372261352600086453D /* Frameworks */,
+				F0D65373261352600086453D /* Resources */,
+				7E61F4765D68C37666701656 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = carnival;
+			productName = carnival;
+			productReference = F0D65375261352600086453D /* carnival.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0D65385261352630086453D /* carnivalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D6539D261352630086453D /* Build configuration list for PBXNativeTarget "carnivalTests" */;
+			buildPhases = (
+				CFCD47BA71011DFEB827E5C8 /* [CP] Check Pods Manifest.lock */,
+				F0D65382261352630086453D /* Sources */,
+				F0D65383261352630086453D /* Frameworks */,
+				F0D65384261352630086453D /* Resources */,
+				3098DB546E8F88E5FC03A496 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0D65388261352630086453D /* PBXTargetDependency */,
+			);
+			name = carnivalTests;
+			productName = carnivalTests;
+			productReference = F0D65386261352630086453D /* carnivalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F0D65390261352630086453D /* carnivalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D653A0261352630086453D /* Build configuration list for PBXNativeTarget "carnivalUITests" */;
+			buildPhases = (
+				0FA7666BA923E34D25A89CD8 /* [CP] Check Pods Manifest.lock */,
+				F0D6538D261352630086453D /* Sources */,
+				F0D6538E261352630086453D /* Frameworks */,
+				F0D6538F261352630086453D /* Resources */,
+				3E85096753C115A879FB22C1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0D65393261352630086453D /* PBXTargetDependency */,
+			);
+			name = carnivalUITests;
+			productName = carnivalUITests;
+			productReference = F0D65391261352630086453D /* carnivalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0D6536D261352600086453D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					F0D65374261352600086453D = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					F0D65385261352630086453D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F0D65374261352600086453D;
+					};
+					F0D65390261352630086453D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F0D65374261352600086453D;
+					};
+				};
+			};
+			buildConfigurationList = F0D65370261352600086453D /* Build configuration list for PBXProject "carnival" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0D6536C261352600086453D;
+			productRefGroup = F0D65376261352600086453D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0D65374261352600086453D /* carnival */,
+				F0D65385261352630086453D /* carnivalTests */,
+				F0D65390261352630086453D /* carnivalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0D65373261352600086453D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D65380261352620086453D /* Preview Assets.xcassets in Resources */,
+				F0D6537D261352620086453D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D65384261352630086453D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D6538F261352630086453D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FA7666BA923E34D25A89CD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-carnival-carnivalUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3098DB546E8F88E5FC03A496 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carnivalTests/Pods-carnivalTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carnivalTests/Pods-carnivalTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carnivalTests/Pods-carnivalTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		309A95AE0E44513005D2038A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-carnival-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E85096753C115A879FB22C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carnival-carnivalUITests/Pods-carnival-carnivalUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carnival-carnivalUITests/Pods-carnival-carnivalUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carnival-carnivalUITests/Pods-carnival-carnivalUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E61F4765D68C37666701656 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carnival/Pods-carnival-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carnival/Pods-carnival-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carnival/Pods-carnival-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFCD47BA71011DFEB827E5C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-carnivalTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0D65371261352600086453D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B7EE9126146A9300363DE5 /* scoreButton.swift in Sources */,
+				F0B7EE822613F6DE00363DE5 /* ListItem.swift in Sources */,
+				F0D653B1261352AF0086453D /* previewData.swift in Sources */,
+				F0D653A7261352770086453D /* AddScoreView.swift in Sources */,
+				F0D6537B261352610086453D /* ContentView.swift in Sources */,
+				F0D65379261352610086453D /* carnivalApp.swift in Sources */,
+				F0D653AC261352910086453D /* carnivalKaren.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D65382261352630086453D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D6538B261352630086453D /* carnivalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D6538D261352630086453D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D65396261352630086453D /* carnivalUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0D65388261352630086453D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0D65374261352600086453D /* carnival */;
+			targetProxy = F0D65387261352630086453D /* PBXContainerItemProxy */;
+		};
+		F0D65393261352630086453D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0D65374261352600086453D /* carnival */;
+			targetProxy = F0D65392261352630086453D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F0D65398261352630086453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F0D65399261352630086453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0D6539B261352630086453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"carnival/Preview Content\"";
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = carnival/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnival;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F0D6539C261352630086453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9863AE450C0264BCF22308F6 /* Pods-carnival.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"carnival/Preview Content\"";
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = carnival/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnival;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F0D6539E261352630086453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A624A3D6EF182CEBA942587A /* Pods-carnivalTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				INFOPLIST_FILE = carnivalTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/carnival.app/carnival";
+			};
+			name = Debug;
+		};
+		F0D6539F261352630086453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 436EB9FCFC6F9AA47B6D1DAD /* Pods-carnivalTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				INFOPLIST_FILE = carnivalTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/carnival.app/carnival";
+			};
+			name = Release;
+		};
+		F0D653A1261352630086453D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0FC50C6235E2DA552F8B5A5 /* Pods-carnival-carnivalUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				INFOPLIST_FILE = carnivalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = carnival;
+			};
+			name = Debug;
+		};
+		F0D653A2261352630086453D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAA8602AD427EF12E2DBCE2 /* Pods-carnival-carnivalUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				INFOPLIST_FILE = carnivalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = carnival;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0D65370261352600086453D /* Build configuration list for PBXProject "carnival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D65398261352630086453D /* Debug */,
+				F0D65399261352630086453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0D6539A261352630086453D /* Build configuration list for PBXNativeTarget "carnival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D6539B261352630086453D /* Debug */,
+				F0D6539C261352630086453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0D6539D261352630086453D /* Build configuration list for PBXNativeTarget "carnivalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D6539E261352630086453D /* Debug */,
+				F0D6539F261352630086453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0D653A0261352630086453D /* Build configuration list for PBXNativeTarget "carnivalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D653A1261352630086453D /* Debug */,
+				F0D653A2261352630086453D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0D6536D261352600086453D /* Project object */;
+}
