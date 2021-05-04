@@ -1,5 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-carnival/Pods-carnival-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework
-${BUILT_PRODUCTS_DIR}/LeanCloud/LeanCloud.framework
-${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework
+${BUILT_PRODUCTS_DIR}/Alamofire-iOS14.0/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/GRDB.swift-iOS14.0/GRDB.framework
+${BUILT_PRODUCTS_DIR}/LeanCloud-iOS14.0/LeanCloud.framework
+${BUILT_PRODUCTS_DIR}/SwiftProtobuf-iOS14.0/SwiftProtobuf.framework

@@ -12,8 +12,7 @@ struct carnivalApp: App {
     var body: some Scene {
         WindowGroup {
             let karen=carnivalKaren(isPreview: false)
-//            ContentView()
-            AddScoreView(karen: karen)
+            ContentView(karen: karen)
                 .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         }
     }

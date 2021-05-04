@@ -20,3 +20,23 @@ pod 'LeanCloud'
   end
 
 end
+
+target 'carnivaladmin' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for carnival
+pod 'LeanCloud'
+
+  target 'carnivaladminTests' do
+    inherit! :search_paths
+    # Pods for testing
+pod 'LeanCloud'
+  end
+
+  target 'carnivaladminUITests' do
+    # Pods for testing
+pod 'LeanCloud'
+  end
+
+end
