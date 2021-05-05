@@ -8,56 +8,6 @@
 import SwiftUI
 import SwiftUIRefresh
 
-struct liveUpdatingTextView: UIViewRepresentable {
-    @Binding var text: String
-    func updateUIView(_ uiView: UITextField, context: Context) {
-        print("View update")
-        uiView.text = text
-    }
-    
-    class Coordinator: NSObject, UITextFieldDelegate {
-        @Binding var text: String
-        init(text: Binding<String>) {
-            _text = text
-        }
-        func textFieldDidChangeSelection(_ textField: UITextField) {
-            print("Text select changed")
-            text = textField.text ?? ""
-        }
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            print("Begins editing")
-        }
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            print("Should return")
-            return true
-        }
-        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-            print("End editing")
-            return true
-        }
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(text: $text)
-    }
-    
-    var font: UIFont
-    var placeholder: String
-    var textAlignment: NSTextAlignment
-    func makeUIView(context: Context) -> UITextField {
-        let rturn=UITextField()
-        rturn.text=text
-        rturn.font=font
-        rturn.placeholder=placeholder
-        rturn.autocorrectionType = .no
-        
-//        rturn.translatesAutoresizingMaskIntoConstraints=false
-        rturn.textAlignment = textAlignment
-        rturn.delegate=context.coordinator
-        return rturn
-    }
-}
-
 struct AddScoreView: View {
     @ObservedObject var karen: carnivalKaren
     @State var editViewPresent=false

@@ -8,10 +8,12 @@ struct RefreshableScrollView<Content: View>: View {
     
     var threshold: CGFloat = 80
     @Binding var refreshing: Bool
+    var arrowColor: Color
     let content: Content
 
-    init(height: CGFloat = 80, refreshing: Binding<Bool>, @ViewBuilder content: () -> Content) {
+    init(height: CGFloat = 80, refreshing: Binding<Bool>,arrowColor: Color, @ViewBuilder content: () -> Content) {
         self.threshold = height
+        self.arrowColor = arrowColor
         self._refreshing = refreshing
         self.content = content()
 
@@ -25,7 +27,7 @@ struct RefreshableScrollView<Content: View>: View {
                     
                     VStack { self.content }.alignmentGuide(.top, computeValue: { d in (self.refreshing && self.frozen) ? -self.threshold : 0.0 })
                     
-                    SymbolView(height: self.threshold, loading: self.refreshing, frozen: self.frozen, rotation: self.rotation)
+                    SymbolView(height: self.threshold, loading: self.refreshing, frozen: self.frozen, rotation: self.rotation, arrowColor: self.arrowColor)
                 }
             }
             .background(FixedView())
@@ -86,6 +88,7 @@ struct RefreshableScrollView<Content: View>: View {
         var loading: Bool
         var frozen: Bool
         var rotation: Angle
+        var arrowColor: Color
         
         
         var body: some View {
@@ -105,6 +108,7 @@ struct RefreshableScrollView<Content: View>: View {
                         .padding(height * 0.375)
                         .rotationEffect(rotation)
                         .offset(y: -height + (loading && frozen ? +height : 0.0))
+                        .foregroundColor(arrowColor)
                 }
             }
         }

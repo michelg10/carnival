@@ -8,17 +8,6 @@ target 'carnival' do
   # Pods for carnival
 pod 'LeanCloud'
 
-  target 'carnivalTests' do
-    inherit! :search_paths
-    # Pods for testing
-pod 'LeanCloud'
-  end
-
-  target 'carnivalUITests' do
-    # Pods for testing
-pod 'LeanCloud'
-  end
-
 end
 
 target 'carnivaladmin' do
@@ -27,16 +16,5 @@ target 'carnivaladmin' do
 
   # Pods for carnival
 pod 'LeanCloud'
-
-  target 'carnivaladminTests' do
-    inherit! :search_paths
-    # Pods for testing
-pod 'LeanCloud'
-  end
-
-  target 'carnivaladminUITests' do
-    # Pods for testing
-pod 'LeanCloud'
-  end
 
 end

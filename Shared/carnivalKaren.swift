@@ -96,7 +96,7 @@ class carnivalKaren: ObservableObject {
     func loadData() {
         grabData(toGrab: &scoreaddpresets, id: "scoreaddpresets")
         grabData(toGrab: &myName, id: "myName")
-//        grabData(toGrab: &pinnedIDs, id: "pinnedIDs")
+        grabData(toGrab: &pinnedIDs, id: "pinnedIDs")
     }
     
     @Published var pinnedParticipants: [ParticipantInfo]=[]
@@ -215,7 +215,7 @@ class carnivalKaren: ObservableObject {
         let sortedLastMap=lastMap.sorted(by: sortrule)
         var lastRankDict: [String: Int]=[:]
         for i in 0..<sortedLastMap.count {
-            lastRankDict[sortedLastMap[i].key]=i
+            lastRankDict[sortedLastMap[i].key]=i+1
         }
 
         print(sortedInfo)
