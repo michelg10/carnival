@@ -70,6 +70,9 @@ let deltaTimeInterval: Double = -600
 
 class carnivalKaren: ObservableObject {
     @Published var refreshing: Bool=false
+    @Published var theme: String="mid"
+    
+    var parentImg: UIImageView?
     
     let defaults=UserDefaults.standard
     
@@ -354,8 +357,69 @@ class carnivalKaren: ObservableObject {
             searchedParticipants=rturnSearch
         }
     }
-    init(isPreview: Bool) {
+    
+    @objc func changeThemeEarly() {
+        theme="early"
+        if parentImg != nil {
+            parentImg!.image=UIImage(named: "image-early")
+        }
+    }
+    
+    @objc func changeThemeMid() {
+        theme="mid"
+        if parentImg != nil {
+            parentImg!.image=UIImage(named: "image-mid")
+        }
+    }
+    
+    @objc func changeThemeLate() {
+        theme="late"
+        if parentImg != nil {
+            parentImg!.image=UIImage(named: "image-late")
+        }
+    }
+    
+    init(isPreview: Bool, parentImage: UIImageView?=nil) {
+        parentImg=parentImage
+        
         loadData()
+        let dateCurrent = Date()
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: dateCurrent)
+        
+        components.hour=16
+        components.minute=40
+        
+        let midTrigger=calendar.date(from: components)
+        print(midTrigger)
+        
+        components.hour=17
+        components.minute=01
+        
+        let lateTrigger=calendar.date(from: components)
+        print(lateTrigger)
+        
+        let changeThemes = (midTrigger != nil) && (lateTrigger != nil)
+        
+        if changeThemes {
+            if Date() < midTrigger! {
+                changeThemeEarly()
+            } else if Date()<lateTrigger! {
+                changeThemeMid()
+            } else {
+                changeThemeLate()
+            }
+            if Date()<lateTrigger! {
+                let timer = Timer(fireAt: lateTrigger!, interval: 0, target: self, selector: #selector(changeThemeLate), userInfo: nil, repeats: false)
+                RunLoop.main.add(timer, forMode: .common)
+            }
+            if Date()<midTrigger! {
+                let timer = Timer(fireAt: midTrigger!, interval: 0, target: self, selector: #selector(changeThemeMid), userInfo: nil, repeats: false)
+                RunLoop.main.add(timer, forMode: .common)
+            }
+        }
+        
+        
         if isPreview {
             for i in 0..<previewNames.count {
                 participantMasterTable.append(.init(currentRank: i+1, name: previewNames[i], id: UUID().uuidString, score: 0, previousRank: -1))

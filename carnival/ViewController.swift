@@ -10,10 +10,11 @@ import SwiftUI
 
 class ViewController: UIViewController {
 
+    @IBOutlet var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let karen=carnivalKaren(isPreview: false)
+        let karen=carnivalKaren(isPreview: false, parentImage: image)
         let controller=UIHostingController(rootView:
                                             ContentView(karen: karen)
                                             .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)

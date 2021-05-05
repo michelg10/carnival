@@ -52,7 +52,7 @@ struct AddScoreView: View {
                 }, set: { (val) in
                     karen.updateData()
                     generateHaptic(hap: .heavy)
-                }), content: {
+                }), arrowColor: .black, content: {
                     VStack(spacing:0) {
                         ForEach((0..<karen.searchedParticipants.count), id:\.self) { index in
                             let currentParticipant=karen.searchedParticipants[index]

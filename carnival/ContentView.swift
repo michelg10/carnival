@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-let theme="late"
 func getChangeState(cur: Int, lst: Int) -> changeState {
     if cur==lst {
         return .nochange
@@ -29,6 +28,7 @@ struct ContentView: View {
     @ObservedObject var karen: carnivalKaren
     @State var searchText=""
     var body: some View {
+        let theme=karen.theme
         ZStack {
             VStack(spacing:0) {
                 Text("Leaderboards")
@@ -96,7 +96,7 @@ struct ContentView: View {
                         .foregroundColor(.init("ldrtxt-"+theme))
                     Spacer()
                 }.padding(.bottom,8)
-                VStack {
+                VStack(spacing:0) {
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .font(.system(size: 20, weight: .medium, design: .default))

@@ -44,7 +44,7 @@ struct liveUpdatingTextView: UIViewRepresentable {
         rturn.text=text
         rturn.font=font
         if placeholderColor != nil {
-            rturn.attributedPlaceholder=NSAttributedString(string: placeholder,attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
+            rturn.attributedPlaceholder=NSAttributedString(string: placeholder,attributes: [NSAttributedString.Key.foregroundColor: placeholderColor!])
         } else {
             rturn.placeholder=placeholder
         }

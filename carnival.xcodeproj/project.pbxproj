@@ -8,13 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		98C78A5564FC4ED9140DC34F /* Pods_carnival.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A9F2CD9D278CCD108A377F /* Pods_carnival.framework */; };
+		9981DAB4E6D2659E20087E1F /* Pods_Carnival_Clip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB45CF4521C4D1F855450D50 /* Pods_Carnival_Clip.framework */; };
 		BE74D431D3D22AF1D85D50F0 /* Pods_carnivaladmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D08CB3FE055FC27A410672 /* Pods_carnivaladmin.framework */; };
 		F00104962642627900F14A11 /* apprecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00104952642627900F14A11 /* apprecognizers.swift */; };
 		F00104972642627900F14A11 /* apprecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00104952642627900F14A11 /* apprecognizers.swift */; };
+		F00104A826426BE900F14A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00104A726426BE900F14A11 /* Assets.xcassets */; };
+		F00104AB26426BE900F14A11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00104A926426BE900F14A11 /* LaunchScreen.storyboard */; };
+		F00104B026426BE900F14A11 /* Carnival Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = F001049C26426BE600F14A11 /* Carnival Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F00104B526426CE700F14A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCF826425EB800E0B938 /* AppDelegate.swift */; };
+		F00104B626426CF200F14A11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F092DCC3264259F700E0B938 /* Main.storyboard */; };
+		F00104B726426D0C00F14A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537C261352620086453D /* Assets.xcassets */; };
+		F00104B826426D2200F14A11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCFA26425EB800E0B938 /* SceneDelegate.swift */; };
+		F00104B926426D2D00F14A11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCFC26425EB800E0B938 /* ViewController.swift */; };
+		F00104BA26426D5000F14A11 /* apprecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00104952642627900F14A11 /* apprecognizers.swift */; };
+		F00104BB26426D5300F14A11 /* buttonstyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC732641A9E300E0B938 /* buttonstyles.swift */; };
+		F00104BC26426D5500F14A11 /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
+		F00104BD26426D5800F14A11 /* refreshableScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */; };
+		F00104BE26426D5A00F14A11 /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
+		F00104BF26426D5C00F14A11 /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
+		F00104C026426FDA00F14A11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6537A261352610086453D /* ContentView.swift */; };
+		F00104C126426FDC00F14A11 /* rankentry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC712641A09B00E0B938 /* rankentry.swift */; };
+		F00104C3264277AD00F14A11 /* AdminAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00104C2264277AD00F14A11 /* AdminAssets.xcassets */; };
 		F092DCF926425EB800E0B938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCF826425EB800E0B938 /* AppDelegate.swift */; };
 		F092DCFB26425EB800E0B938 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCFA26425EB800E0B938 /* SceneDelegate.swift */; };
 		F092DCFD26425EB800E0B938 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCFC26425EB800E0B938 /* ViewController.swift */; };
-		F092DD0226425EBA00E0B938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092DD0126425EBA00E0B938 /* Assets.xcassets */; };
+		F092DD0226425EBA00E0B938 /* AccessAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092DD0126425EBA00E0B938 /* AccessAssets.xcassets */; };
 		F092DD0526425EBA00E0B938 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F092DD0326425EBA00E0B938 /* LaunchScreen.storyboard */; };
 		F092DD0A26425FB500E0B938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F092DCC3264259F700E0B938 /* Main.storyboard */; };
 		F092DD0B26425FC800E0B938 /* rankentry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC712641A09B00E0B938 /* rankentry.swift */; };
@@ -42,15 +60,41 @@
 		F0C81EFB264191E3005E7E3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = F0C81EFA264191E3005E7E3C /* SwiftUIRefresh */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F00104AE26426BE900F14A11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0D6536D261352600086453D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F001049B26426BE600F14A11;
+			remoteInfo = "Carnival Clip";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F00104B426426BE900F14A11 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				F00104B026426BE900F14A11 /* Carnival Clip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		29D08CB3FE055FC27A410672 /* Pods_carnivaladmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnivaladmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA5DC7A9AEE48190F0F3416 /* Pods-carnivaladmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladmin.release.xcconfig"; path = "Target Support Files/Pods-carnivaladmin/Pods-carnivaladmin.release.xcconfig"; sourceTree = "<group>"; };
+		2EB3082D3067807019B37CA9 /* Pods-Carnival Clip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carnival Clip.release.xcconfig"; path = "Target Support Files/Pods-Carnival Clip/Pods-Carnival Clip.release.xcconfig"; sourceTree = "<group>"; };
 		3A17BFCA239E6EDE4C5E776F /* Pods_carnival_carnivalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnival_carnivalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		436EB9FCFC6F9AA47B6D1DAD /* Pods-carnivalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivalTests.release.xcconfig"; path = "Target Support Files/Pods-carnivalTests/Pods-carnivalTests.release.xcconfig"; sourceTree = "<group>"; };
 		5769AD4F57B879B16011A388 /* Pods_carnivaladminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnivaladminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BFF4E3719D77E7AA6ADBF7 /* Pods-carnivaladmin-carnivaladminUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladmin-carnivaladminUITests.debug.xcconfig"; path = "Target Support Files/Pods-carnivaladmin-carnivaladminUITests/Pods-carnivaladmin-carnivaladminUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		766FA732EE160B97CE16A564 /* Pods_carnivaladmin_carnivaladminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnivaladmin_carnivaladminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91A9F2CD9D278CCD108A377F /* Pods_carnival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carnival.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97769C8D6A78469C39B8F282 /* Pods-Carnival Clip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carnival Clip.debug.xcconfig"; path = "Target Support Files/Pods-Carnival Clip/Pods-Carnival Clip.debug.xcconfig"; sourceTree = "<group>"; };
 		9863AE450C0264BCF22308F6 /* Pods-carnival.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival.release.xcconfig"; path = "Target Support Files/Pods-carnival/Pods-carnival.release.xcconfig"; sourceTree = "<group>"; };
 		9A2844F284C1AC88663DCCE2 /* Pods-carnivaladminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladminTests.debug.xcconfig"; path = "Target Support Files/Pods-carnivaladminTests/Pods-carnivaladminTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F92AB091F66978E014FC347 /* Pods-carnivaladmin-carnivaladminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladmin-carnivaladminUITests.release.xcconfig"; path = "Target Support Files/Pods-carnivaladmin-carnivaladminUITests/Pods-carnivaladmin-carnivaladminUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +105,12 @@
 		DDAA8602AD427EF12E2DBCE2 /* Pods-carnival-carnivalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival-carnivalUITests.release.xcconfig"; path = "Target Support Files/Pods-carnival-carnivalUITests/Pods-carnival-carnivalUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival.debug.xcconfig"; path = "Target Support Files/Pods-carnival/Pods-carnival.debug.xcconfig"; sourceTree = "<group>"; };
 		F00104952642627900F14A11 /* apprecognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apprecognizers.swift; sourceTree = "<group>"; };
+		F001049C26426BE600F14A11 /* Carnival Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carnival Clip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00104A726426BE900F14A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F00104AA26426BE900F14A11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F00104AC26426BE900F14A11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00104AD26426BE900F14A11 /* Carnival_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carnival_Clip.entitlements; sourceTree = "<group>"; };
+		F00104C2264277AD00F14A11 /* AdminAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AdminAssets.xcassets; sourceTree = "<group>"; };
 		F092DC712641A09B00E0B938 /* rankentry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankentry.swift; sourceTree = "<group>"; };
 		F092DC732641A9E300E0B938 /* buttonstyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonstyles.swift; sourceTree = "<group>"; };
 		F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveUpdatingTextView.swift; sourceTree = "<group>"; };
@@ -69,7 +119,7 @@
 		F092DCF826425EB800E0B938 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F092DCFA26425EB800E0B938 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F092DCFC26425EB800E0B938 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F092DD0126425EBA00E0B938 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F092DD0126425EBA00E0B938 /* AccessAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AccessAssets.xcassets; sourceTree = "<group>"; };
 		F092DD0426425EBA00E0B938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F092DD0626425EBA00E0B938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0B7EE812613F6DE00363DE5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
@@ -89,9 +139,18 @@
 		F0D653B0261352AF0086453D /* previewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = previewData.swift; sourceTree = "<group>"; };
 		F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = refreshableScrollview.swift; sourceTree = "<group>"; };
 		F26C12AF48E2056382ED5887 /* Pods-carnivaladmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladmin.debug.xcconfig"; path = "Target Support Files/Pods-carnivaladmin/Pods-carnivaladmin.debug.xcconfig"; sourceTree = "<group>"; };
+		FB45CF4521C4D1F855450D50 /* Pods_Carnival_Clip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carnival_Clip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F001049926426BE600F14A11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9981DAB4E6D2659E20087E1F /* Pods_Carnival_Clip.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F092DCF326425EB800E0B938 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,6 +180,7 @@
 				766FA732EE160B97CE16A564 /* Pods_carnivaladmin_carnivaladminUITests.framework */,
 				5769AD4F57B879B16011A388 /* Pods_carnivaladminTests.framework */,
 				91A9F2CD9D278CCD108A377F /* Pods_carnival.framework */,
+				FB45CF4521C4D1F855450D50 /* Pods_Carnival_Clip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,8 +200,21 @@
 				9F92AB091F66978E014FC347 /* Pods-carnivaladmin-carnivaladminUITests.release.xcconfig */,
 				9A2844F284C1AC88663DCCE2 /* Pods-carnivaladminTests.debug.xcconfig */,
 				CCD3C195C2D2544CA111E00C /* Pods-carnivaladminTests.release.xcconfig */,
+				97769C8D6A78469C39B8F282 /* Pods-Carnival Clip.debug.xcconfig */,
+				2EB3082D3067807019B37CA9 /* Pods-Carnival Clip.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F001049D26426BE600F14A11 /* Carnival Clip */ = {
+			isa = PBXGroup;
+			children = (
+				F00104A726426BE900F14A11 /* Assets.xcassets */,
+				F00104A926426BE900F14A11 /* LaunchScreen.storyboard */,
+				F00104AC26426BE900F14A11 /* Info.plist */,
+				F00104AD26426BE900F14A11 /* Carnival_Clip.entitlements */,
+			);
+			path = "Carnival Clip";
 			sourceTree = "<group>";
 		};
 		F092DCF726425EB800E0B938 /* carnival */ = {
@@ -154,7 +227,7 @@
 				F092DCF826425EB800E0B938 /* AppDelegate.swift */,
 				F092DCFA26425EB800E0B938 /* SceneDelegate.swift */,
 				F092DCFC26425EB800E0B938 /* ViewController.swift */,
-				F092DD0126425EBA00E0B938 /* Assets.xcassets */,
+				F092DD0126425EBA00E0B938 /* AccessAssets.xcassets */,
 				F092DD0326425EBA00E0B938 /* LaunchScreen.storyboard */,
 				F092DD0626425EBA00E0B938 /* Info.plist */,
 			);
@@ -173,6 +246,7 @@
 				F0C81EC526419107005E7E3C /* carnivaladminApp.swift */,
 				F0C81ECE26419109005E7E3C /* Info.plist */,
 				F0C81ECB26419109005E7E3C /* Preview Content */,
+				F00104C2264277AD00F14A11 /* AdminAssets.xcassets */,
 			);
 			path = carnivaladmin;
 			sourceTree = "<group>";
@@ -205,6 +279,7 @@
 				F0C81EEE2641911D005E7E3C /* Shared */,
 				F0C81EC426419107005E7E3C /* carnivaladmin */,
 				F092DCF726425EB800E0B938 /* carnival */,
+				F001049D26426BE600F14A11 /* Carnival Clip */,
 				F0D65376261352600086453D /* Products */,
 				B5EF9DBE7548E7D38D019ED7 /* Pods */,
 				124A0A3EE72B824F8AFF2F97 /* Frameworks */,
@@ -216,6 +291,7 @@
 			children = (
 				F0C81EC326419107005E7E3C /* carnivaladmin.app */,
 				F092DCF626425EB800E0B938 /* carnival.app */,
+				F001049C26426BE600F14A11 /* Carnival Clip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +307,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F001049B26426BE600F14A11 /* Carnival Clip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00104B126426BE900F14A11 /* Build configuration list for PBXNativeTarget "Carnival Clip" */;
+			buildPhases = (
+				13100A15CFB0458B0F1CAB37 /* [CP] Check Pods Manifest.lock */,
+				F001049826426BE600F14A11 /* Sources */,
+				F001049926426BE600F14A11 /* Frameworks */,
+				F001049A26426BE600F14A11 /* Resources */,
+				68183D74153CFA4327C1DC49 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Carnival Clip";
+			productName = "Carnival Clip";
+			productReference = F001049C26426BE600F14A11 /* Carnival Clip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
 		F092DCF526425EB800E0B938 /* carnival */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F092DD0726425EBA00E0B938 /* Build configuration list for PBXNativeTarget "carnival" */;
@@ -240,10 +335,12 @@
 				F092DCF326425EB800E0B938 /* Frameworks */,
 				F092DCF426425EB800E0B938 /* Resources */,
 				F328167406F473EEE3A8F25F /* [CP] Embed Pods Frameworks */,
+				F00104B426426BE900F14A11 /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F00104AF26426BE900F14A11 /* PBXTargetDependency */,
 			);
 			name = carnival;
 			productName = carnival;
@@ -281,6 +378,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					F001049B26426BE600F14A11 = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					F092DCF526425EB800E0B938 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -307,11 +407,23 @@
 			targets = (
 				F0C81EC226419107005E7E3C /* carnivaladmin */,
 				F092DCF526425EB800E0B938 /* carnival */,
+				F001049B26426BE600F14A11 /* Carnival Clip */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F001049A26426BE600F14A11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00104AB26426BE900F14A11 /* LaunchScreen.storyboard in Resources */,
+				F00104A826426BE900F14A11 /* Assets.xcassets in Resources */,
+				F00104B726426D0C00F14A11 /* Assets.xcassets in Resources */,
+				F00104B626426CF200F14A11 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F092DCF426425EB800E0B938 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,7 +431,7 @@
 				F092DD0A26425FB500E0B938 /* Main.storyboard in Resources */,
 				F092DD0526425EBA00E0B938 /* LaunchScreen.storyboard in Resources */,
 				F092DD152642600500E0B938 /* Assets.xcassets in Resources */,
-				F092DD0226425EBA00E0B938 /* Assets.xcassets in Resources */,
+				F092DD0226425EBA00E0B938 /* AccessAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0C81EF52641915D005E7E3C /* Assets.xcassets in Resources */,
+				F00104C3264277AD00F14A11 /* AdminAssets.xcassets in Resources */,
 				F0C81ECD26419109005E7E3C /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +448,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13100A15CFB0458B0F1CAB37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carnival Clip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68183D74153CFA4327C1DC49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Carnival Clip/Pods-Carnival Clip-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Carnival Clip/Pods-Carnival Clip-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Carnival Clip/Pods-Carnival Clip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BBFEBAD9BA62A7009A4DC92F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +568,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F001049826426BE600F14A11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00104C126426FDC00F14A11 /* rankentry.swift in Sources */,
+				F00104BE26426D5A00F14A11 /* previewData.swift in Sources */,
+				F00104B526426CE700F14A11 /* AppDelegate.swift in Sources */,
+				F00104BB26426D5300F14A11 /* buttonstyles.swift in Sources */,
+				F00104B926426D2D00F14A11 /* ViewController.swift in Sources */,
+				F00104BF26426D5C00F14A11 /* carnivalKaren.swift in Sources */,
+				F00104BC26426D5500F14A11 /* liveUpdatingTextView.swift in Sources */,
+				F00104C026426FDA00F14A11 /* ContentView.swift in Sources */,
+				F00104B826426D2200F14A11 /* SceneDelegate.swift in Sources */,
+				F00104BA26426D5000F14A11 /* apprecognizers.swift in Sources */,
+				F00104BD26426D5800F14A11 /* refreshableScrollview.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F092DCF226425EB800E0B938 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,7 +626,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F00104AF26426BE900F14A11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F001049B26426BE600F14A11 /* Carnival Clip */;
+			targetProxy = F00104AE26426BE900F14A11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		F00104A926426BE900F14A11 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F00104AA26426BE900F14A11 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		F092DCC3264259F700E0B938 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -476,10 +662,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F00104B226426BE900F14A11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97769C8D6A78469C39B8F282 /* Pods-Carnival Clip.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Carnival Clip/Carnival_Clip.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				INFOPLIST_FILE = "Carnival Clip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnival.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F00104B326426BE900F14A11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EB3082D3067807019B37CA9 /* Pods-Carnival Clip.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Carnival Clip/Carnival_Clip.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9K2XM38XLK;
+				INFOPLIST_FILE = "Carnival Clip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnival.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F092DD0826425EBA00E0B938 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -501,6 +732,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9863AE450C0264BCF22308F6 /* Pods-carnival.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -683,6 +915,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F00104B126426BE900F14A11 /* Build configuration list for PBXNativeTarget "Carnival Clip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00104B226426BE900F14A11 /* Debug */,
+				F00104B326426BE900F14A11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F092DD0726425EBA00E0B938 /* Build configuration list for PBXNativeTarget "carnival" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
