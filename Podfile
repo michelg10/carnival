@@ -27,3 +27,12 @@ target 'Carnival Clip' do
 pod 'LeanCloud'
 
 end
+
+target 'carnivalmac' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for carnival
+pod 'LeanCloud'
+
+end

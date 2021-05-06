@@ -1,11 +1,20 @@
 import SwiftUI
+
 import UIKit
 
 struct liveUpdatingTextView: UIViewRepresentable {
     @Binding var text: String
     func updateUIView(_ uiView: UITextField, context: Context) {
         print("View update")
-        uiView.text = text
+        uiView.text=text
+        uiView.font=font
+        if placeholderColor != nil {
+            uiView.attributedPlaceholder=NSAttributedString(string: placeholder,attributes: [NSAttributedString.Key.foregroundColor: placeholderColor!])
+        } else {
+            uiView.placeholder=placeholder
+        }
+        uiView.textColor=color
+        uiView.textAlignment=textAlignment
     }
     
     class Coordinator: NSObject, UITextFieldDelegate {

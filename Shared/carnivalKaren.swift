@@ -20,6 +20,7 @@ enum haptic {
 let doubleThreshold=10
 
 func generateHaptic(hap:haptic) {
+    #if os(iOS)
     switch hap {
     case .soft:
         let softHapticsEngine=UIImpactFeedbackGenerator.init(style: .soft)
@@ -37,6 +38,7 @@ func generateHaptic(hap:haptic) {
         let rigidHapticsEngine=UIImpactFeedbackGenerator.init(style: .rigid)
         rigidHapticsEngine.impactOccurred()
     }
+    #endif
 }
 
 struct Entry: Equatable {
@@ -51,7 +53,7 @@ struct Participant: Equatable, Hashable {
     var id: String
 }
 
-struct ParticipantInfo {
+struct ParticipantInfo: Equatable {
     var currentRank: Int
     var name: String
     var id: String
@@ -69,10 +71,13 @@ struct playerDetail {
 let deltaTimeInterval: Double = -600
 
 class carnivalKaren: ObservableObject {
-    @Published var refreshing: Bool=false
+    var refreshing: Bool=false
+    @Published var manualRefresh=false
     @Published var theme: String="mid"
     
+    #if os(iOS)
     var parentImg: UIImageView?
+    #endif
     
     let defaults=UserDefaults.standard
     
@@ -109,11 +114,13 @@ class carnivalKaren: ObservableObject {
         for i in participantMasterTable {
             if pinnedIDs.contains(i.id) {
                 nxtPinnedParticipants.append(i)
-                print("Well hello \(i)")
             }
         }
-        DispatchQueue.main.async { [self] in
-            pinnedParticipants=nxtPinnedParticipants
+        if pinnedParticipants != nxtPinnedParticipants {
+            print("Delta in pinned participants")
+            DispatchQueue.main.async { [self] in
+                pinnedParticipants=nxtPinnedParticipants
+            }
         }
     }
     
@@ -201,7 +208,7 @@ class carnivalKaren: ObservableObject {
     }
     
     func regenerateMaster() {
-        participantMasterTable.removeAll()
+        var newParticipantMasterTable: [ParticipantInfo]=[]
         
         // create display leaderboards
         let currentMap=generateOrder(validDate: Date())
@@ -221,11 +228,15 @@ class carnivalKaren: ObservableObject {
             lastRankDict[sortedLastMap[i].key]=i+1
         }
 
-        print(sortedInfo)
+//        print(sortedInfo)
         for i in 0..<sortedInfo.count {
-            participantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastRankDict[sortedInfo[i].key] ?? -1))
+            newParticipantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastRankDict[sortedInfo[i].key] ?? -1))
         }
-        print("MSTR ",participantMasterTable)
+        if newParticipantMasterTable != participantMasterTable {
+            print("Delta in master table. updating...")
+            participantMasterTable=newParticipantMasterTable
+        }
+//        print("MSTR ",participantMasterTable)
         searchForParticipant(val: playerSearch)
         refreshPinnedList()
     }
@@ -279,13 +290,15 @@ class carnivalKaren: ObservableObject {
         return nxtEntries
     }
     
-    func updateData() { // purpose: Update the master participant table
+    @objc func updateData() { // purpose: Update the master participant table
+        if refreshing {
+            return
+        }
         refreshing=true
         let nxtParticipants=getParticipants()
         if !nxtParticipants.isEmpty {
             participantMap=nxtParticipants
         }
-        print(participantMap)
         
         let nxtEntries=getEntries()
         if nxtEntries != [] {
@@ -294,6 +307,9 @@ class carnivalKaren: ObservableObject {
         DispatchQueue.main.async { [self] in
             refreshing=false
             regenerateMaster()
+            if manualRefresh {
+                manualRefresh=false
+            }
         }
     }
     
@@ -318,11 +334,10 @@ class carnivalKaren: ObservableObject {
             orderGen[i]=0
         }
         for i in entries {
-            print("Dealing with entry, score for \(i.personID), count \(i.marginalScore), submitted \(i.lastUpdated)")
+//            print("Dealing with entry, score for \(i.personID), count \(i.marginalScore), submitted \(i.lastUpdated)")
             if i.lastUpdated<=validDate {
-                print("Entry valid")
+//                print("Entry valid")
                 orderGen[i.personID]=(orderGen[i.personID] ?? 0) + i.marginalScore
-                print(orderGen)
             }
         }
         return orderGen
@@ -334,67 +349,76 @@ class carnivalKaren: ObservableObject {
         var rturnSearch: [ParticipantInfo]=[]
         let valComp=val.lowercased().replacingOccurrences(of: " ", with: "")
         for i in participantMasterTable {
-            print("MASTER ",i.name,i.score)
+//            print("MASTER ",i.name,i.score)
             let partComp=i.name.lowercased().replacingOccurrences(of: " ", with: "")
             if partComp.hasPrefix(valComp) {
                 rturnSearch.append(i)
             }
         }
-        var shouldCancelSelection=true
-        for i in rturnSearch {
-            if i.id == selectedParticipant {
-                shouldCancelSelection=false
-                break
+        if selectedParticipant != nil {
+            var shouldCancelSelection=true
+            for i in rturnSearch {
+                if i.id == selectedParticipant {
+                    shouldCancelSelection=false
+                    break
+                }
             }
-        }
-        if shouldCancelSelection {
-            selectedParticipant=nil
+            if shouldCancelSelection {
+                selectedParticipant=nil
+            }
         }
         if rturnSearch.count>50 {
             rturnSearch.removeSubrange(50..<rturnSearch.count)
         }
-        DispatchQueue.main.async { [self] in
-            searchedParticipants=rturnSearch
+        if searchedParticipants != rturnSearch {
+            print("Delta in searched participants. updating...")
+            DispatchQueue.main.async { [self] in
+                searchedParticipants=rturnSearch
+            }
         }
     }
     
     @objc func changeThemeEarly() {
         theme="early"
+        #if os(iOS)
         if parentImg != nil {
             parentImg!.image=UIImage(named: "image-early")
         }
+        #endif
     }
     
     @objc func changeThemeMid() {
         theme="mid"
+        #if os(iOS)
         if parentImg != nil {
             parentImg!.image=UIImage(named: "image-mid")
         }
+        #endif
     }
     
     @objc func changeThemeLate() {
         theme="late"
+        #if os(iOS)
         if parentImg != nil {
             parentImg!.image=UIImage(named: "image-late")
         }
+        #endif
     }
     
-    init(isPreview: Bool, parentImage: UIImageView?=nil) {
-        parentImg=parentImage
-        
+    func sharedInit(isPreview: Bool) {
         loadData()
         let dateCurrent = Date()
         let calendar = Calendar.current
         var components = calendar.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: dateCurrent)
         
-        components.hour=16
+        components.hour=5
         components.minute=40
         
         let midTrigger=calendar.date(from: components)
         print(midTrigger)
         
-        components.hour=17
-        components.minute=01
+        components.hour=6
+        components.minute=30
         
         let lateTrigger=calendar.date(from: components)
         print(lateTrigger)
@@ -436,6 +460,22 @@ class carnivalKaren: ObservableObject {
             DispatchQueue.global().async { [self] in
                 updateData()
             }
+            let autoRefreshTimer=Timer(timeInterval: 3.0, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+            RunLoop.main.add(autoRefreshTimer, forMode: .common)
         }
     }
+    
+    #if os(macOS)
+    init(isPreview: Bool) {
+        sharedInit(isPreview: isPreview)
+    }
+    #endif
+    
+    #if os(iOS)
+    init(isPreview: Bool, parentImage: UIImageView?=nil) {
+        parentImg=parentImage
+        
+        sharedInit(isPreview: isPreview)
+    }
+    #endif
 }

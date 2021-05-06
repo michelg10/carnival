@@ -118,8 +118,9 @@ struct ContentView: View {
                     .background(Color.init("ldrfloatsearch-"+theme))
                     .cornerRadius(13, antialiased: true)
                     RefreshableScrollView(refreshing: Binding(get: {
-                        karen.refreshing
+                        karen.manualRefresh
                     }, set: { (val) in
+                        karen.manualRefresh=true
                         karen.updateData()
                         generateHaptic(hap: .heavy)
                     }), arrowColor: .init("ldrtxt-"+theme),
