@@ -17,6 +17,25 @@ enum haptic {
     case rigid
 }
 
+func getChangeState(cur: Int, lst: Int) -> changeState {
+    if cur==lst {
+        return .nochange
+    }
+    if cur>lst {
+        if cur>lst+10 {
+            return .dDown
+        } else {
+            return .down
+        }
+    } else {
+        if cur<lst-10 {
+            return .dUp
+        } else {
+            return .up
+        }
+    }
+}
+
 let doubleThreshold=10
 
 func generateHaptic(hap:haptic) {
@@ -59,6 +78,7 @@ struct ParticipantInfo: Equatable {
     var id: String
     var score: Int
     var previousRank: Int
+    var lastUpdated: Date?
 }
 
 struct playerDetail {
@@ -125,7 +145,7 @@ class carnivalKaren: ObservableObject {
     }
     
     @Published var scoreaddpresets=[10,20,30,-10,-20,-30]
-    @Published var pinnedIDs=["6063bce8ef9b462612fd56ef"]
+    @Published var pinnedIDs: [String]=[]
     var participantMap=[String: String]() // the participants map that maps a participant ID to a participant name, also retrieved from the server
     var entries: [Entry]=[] // the entries retrieved from the server
     @Published var selectedParticipant: String? // the participant currently selected within the score adding view
@@ -136,6 +156,7 @@ class carnivalKaren: ObservableObject {
     
     @Published var myName: String = "Unnamed"
     
+    //MARK: Admin functions
     func removeEntry(id: String) {
         var index = -1
         for i in 0..<entries.count {
@@ -207,6 +228,8 @@ class carnivalKaren: ObservableObject {
         }
     }
     
+    //MARK: End Admin functions
+    
     func regenerateMaster() {
         var newParticipantMasterTable: [ParticipantInfo]=[]
         
@@ -230,8 +253,13 @@ class carnivalKaren: ObservableObject {
 
 //        print(sortedInfo)
         for i in 0..<sortedInfo.count {
-            newParticipantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastRankDict[sortedInfo[i].key] ?? -1))
+            newParticipantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastRankDict[sortedInfo[i].key] ?? -1, lastUpdated: nil))
         }
+//        print("Sort entries")
+//        let sortedEntries=entries.sorted { a, b in
+//            return a.lastUpdated>b.lastUpdated
+//        }
+//        print(sortedEntries)
         if newParticipantMasterTable != participantMasterTable {
             print("Delta in master table. updating...")
             DispatchQueue.main.async {
@@ -243,6 +271,7 @@ class carnivalKaren: ObservableObject {
         refreshPinnedList()
     }
     
+    //MARK: Fetch raw data from the servers
     func getParticipants() -> [String:String] {
         var nxtParticipants=[String: String]()
         let participantsQuery=LCQuery(className: "participant")
@@ -293,26 +322,30 @@ class carnivalKaren: ObservableObject {
     }
     
     @objc func updateData() { // purpose: Update the master participant table
-        print("Data update called")
-        if refreshing {
-            return
-        }
-        refreshing=true
-        let nxtParticipants=getParticipants()
-        if !nxtParticipants.isEmpty {
-            participantMap=nxtParticipants
-        }
-        
-        let nxtEntries=getEntries()
-        if nxtEntries != [] {
-            entries=nxtEntries
-        }
-        regenerateMaster()
-        DispatchQueue.main.async { [self] in
-            refreshing=false
-            if manualRefresh {
-                manualRefresh=false
+        if UIApplication.shared.applicationState == .active {
+            print("Data update called")
+            if refreshing {
+                return
             }
+            refreshing=true
+            let nxtParticipants=getParticipants()
+            if !nxtParticipants.isEmpty {
+                participantMap=nxtParticipants
+            }
+            
+            let nxtEntries=getEntries()
+            if nxtEntries != [] {
+                entries=nxtEntries
+            }
+            regenerateMaster()
+            DispatchQueue.main.async { [self] in
+                refreshing=false
+                if manualRefresh {
+                    manualRefresh=false
+                }
+            }
+        } else {
+            print("Data update skipped: Application not in foreground")
         }
     }
     
@@ -424,13 +457,11 @@ class carnivalKaren: ObservableObject {
         components.minute=40
         
         let midTrigger=calendar.date(from: components)
-        print(midTrigger)
         
         components.hour=6
         components.minute=30
         
         let lateTrigger=calendar.date(from: components)
-        print(lateTrigger)
         
         let changeThemes = (midTrigger != nil) && (lateTrigger != nil)
         
@@ -469,7 +500,7 @@ class carnivalKaren: ObservableObject {
             DispatchQueue.global().async { [self] in
                 updateData()
             }
-            let autoRefreshTimer=Timer(timeInterval: 3.0, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
+            let autoRefreshTimer=Timer(timeInterval: 10.0, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
             RunLoop.main.add(autoRefreshTimer, forMode: .common)
         }
     }

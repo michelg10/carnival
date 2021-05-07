@@ -1,7 +1,59 @@
 import SwiftUI
 
-import UIKit
+#if os(macOS)
+import AppKit
+struct liveUpdatingTextView: NSViewRepresentable {
+    @Binding var text: String
+    func updateNSView(_ nsView: NSTextField, context: Context) {
+        print("View update")
+        nsView.stringValue=text
+        nsView.font=font
+        if placeholderColor != nil {
+            let tmp=NSMutableAttributedString(string: placeholder,attributes: [NSAttributedString.Key.foregroundColor: placeholderColor!, NSAttributedString.Key.font: font])
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = textAlignment
+            tmp.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: tmp.length))
+            nsView.placeholderAttributedString=tmp
+        } else {
+            nsView.placeholderString=placeholder
+        }
+        nsView.textColor=color
+        nsView.alignment=textAlignment
+    }
+    
+    var font: NSFont
+    var placeholder: String
+    var textAlignment: NSTextAlignment
+    var color: NSColor?
+    var placeholderColor: NSColor?
+    
+    func makeNSView(context: Context) -> NSTextField {
+        let rturn=NSTextField()
+        rturn.backgroundColor = .clear
+        rturn.drawsBackground=false
+        rturn.isBordered=false
+        rturn.stringValue=text
+        rturn.font=font
+        if placeholderColor != nil {
+            let tmp=NSMutableAttributedString(string: placeholder,attributes: [NSAttributedString.Key.foregroundColor: placeholderColor!, NSAttributedString.Key.font: font])
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = textAlignment
+            tmp.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: tmp.length))
+            rturn.placeholderAttributedString=tmp
+        } else {
+            rturn.placeholderString=placeholder
+        }
+        rturn.textColor=color
+        
+        
+        rturn.alignment=textAlignment
+        return rturn
+    }
+}
+#endif
 
+#if os(iOS)
+import UIKit
 struct liveUpdatingTextView: UIViewRepresentable {
     @Binding var text: String
     func updateUIView(_ uiView: UITextField, context: Context) {
@@ -65,5 +117,24 @@ struct liveUpdatingTextView: UIViewRepresentable {
         rturn.textAlignment = textAlignment
         rturn.delegate=context.coordinator
         return rturn
+    }
+}
+#endif
+
+struct liveupdatingtextfield_Previews: PreviewProvider {
+    static var previews: some View {
+        #if os(macOS)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.black)
+            liveUpdatingTextView(text: .constant(""),
+                                 font: NSFont.systemFont(ofSize: 18, weight: .medium),
+                                 placeholder: "Placeholder",
+                                 textAlignment: .center,
+                                 color: .black,
+                                 placeholderColor: .blue
+            )
+        }
+        #endif
     }
 }

@@ -6,27 +6,9 @@
 //
 
 import SwiftUI
-func getChangeState(cur: Int, lst: Int) -> changeState {
-    if cur==lst {
-        return .nochange
-    }
-    if cur>lst {
-        if cur>lst+10 {
-            return .dDown
-        } else {
-            return .down
-        }
-    } else {
-        if cur<lst-10 {
-            return .dUp
-        } else {
-            return .up
-        }
-    }
-}
+
 struct ContentView: View {
     @ObservedObject var karen: carnivalKaren
-    @State var searchText=""
     var body: some View {
         let theme=karen.theme
         ZStack {

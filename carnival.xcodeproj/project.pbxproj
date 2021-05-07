@@ -67,6 +67,11 @@
 		F0C81EF726419163005E7E3C /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
 		F0C81EF826419184005E7E3C /* refreshableScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */; };
 		F0C81EFB264191E3005E7E3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = F0C81EFA264191E3005E7E3C /* SwiftUIRefresh */; };
+		F0D81D982645400000A983EF /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
+		F0D81D9A26458DCB00A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
+		F0D81D9B26458DF200A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
+		F0D81D9C26458E5600A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
+		F0D81D9D26458E5700A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +161,7 @@
 		F0D653A6261352770086453D /* AddScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScoreView.swift; sourceTree = "<group>"; };
 		F0D653AB261352910086453D /* carnivalKaren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalKaren.swift; sourceTree = "<group>"; };
 		F0D653B0261352AF0086453D /* previewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = previewData.swift; sourceTree = "<group>"; };
+		F0D81D9926458DCB00A983EF /* changeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeState.swift; sourceTree = "<group>"; };
 		F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = refreshableScrollview.swift; sourceTree = "<group>"; };
 		F26C12AF48E2056382ED5887 /* Pods-carnivaladmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladmin.debug.xcconfig"; path = "Target Support Files/Pods-carnivaladmin/Pods-carnivaladmin.debug.xcconfig"; sourceTree = "<group>"; };
 		FB45CF4521C4D1F855450D50 /* Pods_Carnival_Clip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carnival_Clip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -314,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D653AB261352910086453D /* carnivalKaren.swift */,
+				F0D81D9926458DCB00A983EF /* changeState.swift */,
 				F0D6537C261352620086453D /* Assets.xcassets */,
 				F0D653B0261352AF0086453D /* previewData.swift */,
 				F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */,
@@ -708,6 +715,7 @@
 				F00104B826426D2200F14A11 /* SceneDelegate.swift in Sources */,
 				F00104BA26426D5000F14A11 /* apprecognizers.swift in Sources */,
 				F00104BD26426D5800F14A11 /* refreshableScrollview.swift in Sources */,
+				F0D81D9D26458E5700A983EF /* changeState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +726,8 @@
 				F00FBC3526436C6E00186BCB /* previewData.swift in Sources */,
 				F00FBC282643621800186BCB /* ContentView.swift in Sources */,
 				F00FBC3326436C6700186BCB /* carnivalKaren.swift in Sources */,
+				F0D81D982645400000A983EF /* liveUpdatingTextView.swift in Sources */,
+				F0D81D9B26458DF200A983EF /* changeState.swift in Sources */,
 				F00FBC3926436C7900186BCB /* buttonstyles.swift in Sources */,
 				F00FBC262643621800186BCB /* carnivalmacApp.swift in Sources */,
 			);
@@ -738,6 +748,7 @@
 				F092DCF926425EB800E0B938 /* AppDelegate.swift in Sources */,
 				F092DCFB26425EB800E0B938 /* SceneDelegate.swift in Sources */,
 				F092DD0F26425FF900E0B938 /* buttonstyles.swift in Sources */,
+				F0D81D9C26458E5600A983EF /* changeState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +767,7 @@
 				F0C81EF026419148005E7E3C /* modalDismiss.swift in Sources */,
 				F00104962642627900F14A11 /* apprecognizers.swift in Sources */,
 				F092DD1226425FFF00E0B938 /* liveUpdatingTextView.swift in Sources */,
+				F0D81D9A26458DCB00A983EF /* changeState.swift in Sources */,
 				F0C81EC626419107005E7E3C /* carnivaladminApp.swift in Sources */,
 				F0C81EF226419148005E7E3C /* scoreEditView.swift in Sources */,
 			);
