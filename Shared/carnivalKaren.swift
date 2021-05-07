@@ -234,7 +234,9 @@ class carnivalKaren: ObservableObject {
         }
         if newParticipantMasterTable != participantMasterTable {
             print("Delta in master table. updating...")
-            participantMasterTable=newParticipantMasterTable
+            DispatchQueue.main.async {
+                self.participantMasterTable=newParticipantMasterTable
+            }
         }
 //        print("MSTR ",participantMasterTable)
         searchForParticipant(val: playerSearch)
@@ -291,6 +293,7 @@ class carnivalKaren: ObservableObject {
     }
     
     @objc func updateData() { // purpose: Update the master participant table
+        print("Data update called")
         if refreshing {
             return
         }
@@ -304,9 +307,9 @@ class carnivalKaren: ObservableObject {
         if nxtEntries != [] {
             entries=nxtEntries
         }
+        regenerateMaster()
         DispatchQueue.main.async { [self] in
             refreshing=false
-            regenerateMaster()
             if manualRefresh {
                 manualRefresh=false
             }
@@ -405,6 +408,12 @@ class carnivalKaren: ObservableObject {
         #endif
     }
     
+    @objc func asyncUpdateData() {
+        DispatchQueue.global(qos: .background).async { [self] in
+            updateData()
+        }
+    }
+    
     func sharedInit(isPreview: Bool) {
         loadData()
         let dateCurrent = Date()
@@ -460,7 +469,7 @@ class carnivalKaren: ObservableObject {
             DispatchQueue.global().async { [self] in
                 updateData()
             }
-            let autoRefreshTimer=Timer(timeInterval: 3.0, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+            let autoRefreshTimer=Timer(timeInterval: 3.0, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
             RunLoop.main.add(autoRefreshTimer, forMode: .common)
         }
     }
