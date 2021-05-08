@@ -92,7 +92,6 @@ let deltaTimeInterval: Double = -600
 
 class carnivalKaren: ObservableObject {
     var refreshing: Bool=false
-    @Published var manualRefresh=false
     @Published var theme: String="mid"
     
     #if os(iOS)
@@ -262,7 +261,11 @@ class carnivalKaren: ObservableObject {
 //        print(sortedEntries)
         if newParticipantMasterTable != participantMasterTable {
             print("Delta in master table. updating...")
-            DispatchQueue.main.async {
+            if !Thread.isMainThread {
+                DispatchQueue.main.sync {
+                    self.participantMasterTable=newParticipantMasterTable
+                }
+            } else {
                 self.participantMasterTable=newParticipantMasterTable
             }
         }
@@ -321,32 +324,23 @@ class carnivalKaren: ObservableObject {
         return nxtEntries
     }
     
-    @objc func updateData() { // purpose: Update the master participant table
-        if UIApplication.shared.applicationState == .active {
-            print("Data update called")
-            if refreshing {
-                return
-            }
-            refreshing=true
-            let nxtParticipants=getParticipants()
-            if !nxtParticipants.isEmpty {
-                participantMap=nxtParticipants
-            }
-            
-            let nxtEntries=getEntries()
-            if nxtEntries != [] {
-                entries=nxtEntries
-            }
-            regenerateMaster()
-            DispatchQueue.main.async { [self] in
-                refreshing=false
-                if manualRefresh {
-                    manualRefresh=false
-                }
-            }
-        } else {
-            print("Data update skipped: Application not in foreground")
+    func totalUpdateData() { // purpose: Completely refresh with data from the servers
+        print("Full data update called")
+        if refreshing {
+            return
         }
+        refreshing=true
+        let nxtParticipants=getParticipants()
+        if !nxtParticipants.isEmpty {
+            participantMap=nxtParticipants
+        }
+        
+        let nxtEntries=getEntries()
+        if nxtEntries != [] {
+            entries=nxtEntries
+        }
+        regenerateMaster()
+        refreshing=false
     }
     
     func fillWithFiller() {
@@ -441,9 +435,77 @@ class carnivalKaren: ObservableObject {
         #endif
     }
     
-    @objc func asyncUpdateData() {
-        DispatchQueue.global(qos: .background).async { [self] in
-            updateData()
+    var liveEntryQuery: LiveQuery?
+    
+    func addObj(object: LCObject) {
+        let marginalScore=object["marginalScore"]?.intValue
+        let person=object["personID"]?.stringValue
+        let addSource=object["addSource"]?.stringValue
+        let addDate=object["dateAdded"]?.dateValue
+        let objid=object.objectId?.value
+        if objid != nil && addDate != nil && addSource != nil && person != nil && marginalScore != nil {
+            entries.append(.init(id: objid!, lastUpdated: addDate!, marginalScore: marginalScore!, personID: person!, addSource: addSource!))
+        }
+    }
+    
+    func attachLiveUpdate() {
+        do {
+            let query=LCQuery(className: "entry")
+            liveEntryQuery = try LiveQuery(query: query, eventHandler: { [self] (liveQuery, event) in
+                switch event {
+                case .create(object: let object):
+                    print("Dynamic create ",object)
+                    addObj(object: object)
+                case .update(object: let object, updatedKeys: let updatedKeys):
+                    if object.objectId?.value != nil {
+                        for i in 0..<entries.count {
+                            if entries[i].id == object.objectId?.value {
+                                entries.remove(at: i)
+                                addObj(object: object)
+                            }
+                        }
+                    }
+                    print("Dynamic update ",object)
+                case .enter(object: let object, updatedKeys: _):
+                    addObj(object: object)
+                    print("Dynamic enter ",object)
+                case .leave(object: let object, updatedKeys: let updatedKeys):
+                    if object.objectId?.value != nil {
+                        for i in 0..<entries.count {
+                            if entries[i].id == object.objectId?.value {
+                                entries.remove(at: i)
+                            }
+                        }
+                    }
+                    print("Dynamic leave ",object)
+                case .delete(object: let object):
+                    if object.objectId?.value != nil {
+                        for i in 0..<entries.count {
+                            if entries[i].id == object.objectId?.value {
+                                entries.remove(at: i)
+                            }
+                        }
+                    }
+                    print("Dynamic delete ",object)
+                default:
+                    break
+                }
+                regenerateMaster()
+            })
+            liveEntryQuery!.subscribe { res in
+                assert(Thread.isMainThread)
+                switch res {
+                case .success:
+                    print("Success")
+                    break
+                case .failure(error: let error):
+                    print("Subscription error")
+                    print(error)
+                }
+            }
+            print("All done")
+        } catch {
+            print(error)
         }
     }
     
@@ -497,11 +559,8 @@ class carnivalKaren: ObservableObject {
             } catch {
                 fatalError("\(error)")
             }
-            DispatchQueue.global().async { [self] in
-                updateData()
-            }
-            let autoRefreshTimer=Timer(timeInterval: 10.0, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
-            RunLoop.main.add(autoRefreshTimer, forMode: .common)
+            totalUpdateData()
+            attachLiveUpdate()
         }
     }
     

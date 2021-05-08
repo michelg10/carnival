@@ -24,7 +24,6 @@
 		F00104BA26426D5000F14A11 /* apprecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00104952642627900F14A11 /* apprecognizers.swift */; };
 		F00104BB26426D5300F14A11 /* buttonstyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC732641A9E300E0B938 /* buttonstyles.swift */; };
 		F00104BC26426D5500F14A11 /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
-		F00104BD26426D5800F14A11 /* refreshableScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */; };
 		F00104BE26426D5A00F14A11 /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
 		F00104BF26426D5C00F14A11 /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
 		F00104C026426FDA00F14A11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6537A261352610086453D /* ContentView.swift */; };
@@ -48,7 +47,6 @@
 		F092DD0C26425FCF00E0B938 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6537A261352610086453D /* ContentView.swift */; };
 		F092DD0E26425FF900E0B938 /* buttonstyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC732641A9E300E0B938 /* buttonstyles.swift */; };
 		F092DD0F26425FF900E0B938 /* buttonstyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC732641A9E300E0B938 /* buttonstyles.swift */; };
-		F092DD1026425FFC00E0B938 /* refreshableScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */; };
 		F092DD1126425FFE00E0B938 /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
 		F092DD1226425FFF00E0B938 /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
 		F092DD132642600100E0B938 /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
@@ -65,7 +63,6 @@
 		F0C81EF52641915D005E7E3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537C261352620086453D /* Assets.xcassets */; };
 		F0C81EF626419161005E7E3C /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
 		F0C81EF726419163005E7E3C /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
-		F0C81EF826419184005E7E3C /* refreshableScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */; };
 		F0C81EFB264191E3005E7E3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = F0C81EFA264191E3005E7E3C /* SwiftUIRefresh */; };
 		F0D81D982645400000A983EF /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
 		F0D81D9A26458DCB00A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
@@ -162,7 +159,6 @@
 		F0D653AB261352910086453D /* carnivalKaren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalKaren.swift; sourceTree = "<group>"; };
 		F0D653B0261352AF0086453D /* previewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = previewData.swift; sourceTree = "<group>"; };
 		F0D81D9926458DCB00A983EF /* changeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeState.swift; sourceTree = "<group>"; };
-		F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = refreshableScrollview.swift; sourceTree = "<group>"; };
 		F26C12AF48E2056382ED5887 /* Pods-carnivaladmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnivaladmin.debug.xcconfig"; path = "Target Support Files/Pods-carnivaladmin/Pods-carnivaladmin.debug.xcconfig"; sourceTree = "<group>"; };
 		FB45CF4521C4D1F855450D50 /* Pods_Carnival_Clip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carnival_Clip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -324,7 +320,6 @@
 				F0D6537C261352620086453D /* Assets.xcassets */,
 				F0D653B0261352AF0086453D /* previewData.swift */,
 				F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */,
-				F0EDFDA32615A6E70046B00F /* refreshableScrollview.swift */,
 				F092DC732641A9E300E0B938 /* buttonstyles.swift */,
 				F00104952642627900F14A11 /* apprecognizers.swift */,
 			);
@@ -714,7 +709,6 @@
 				F00104C026426FDA00F14A11 /* ContentView.swift in Sources */,
 				F00104B826426D2200F14A11 /* SceneDelegate.swift in Sources */,
 				F00104BA26426D5000F14A11 /* apprecognizers.swift in Sources */,
-				F00104BD26426D5800F14A11 /* refreshableScrollview.swift in Sources */,
 				F0D81D9D26458E5700A983EF /* changeState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,7 +737,6 @@
 				F00104972642627900F14A11 /* apprecognizers.swift in Sources */,
 				F092DD0C26425FCF00E0B938 /* ContentView.swift in Sources */,
 				F092DD1126425FFE00E0B938 /* liveUpdatingTextView.swift in Sources */,
-				F092DD1026425FFC00E0B938 /* refreshableScrollview.swift in Sources */,
 				F092DCFD26425EB800E0B938 /* ViewController.swift in Sources */,
 				F092DCF926425EB800E0B938 /* AppDelegate.swift in Sources */,
 				F092DCFB26425EB800E0B938 /* SceneDelegate.swift in Sources */,
@@ -757,7 +750,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0C81EEF26419148005E7E3C /* ListItem.swift in Sources */,
-				F0C81EF826419184005E7E3C /* refreshableScrollview.swift in Sources */,
 				F0C81EF126419148005E7E3C /* scoreButton.swift in Sources */,
 				F0C81EF626419161005E7E3C /* previewData.swift in Sources */,
 				F0C81EF326419148005E7E3C /* AddScoreView.swift in Sources */,

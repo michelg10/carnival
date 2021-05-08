@@ -99,14 +99,7 @@ struct ContentView: View {
                     }.frame(height:44)
                     .background(Color.init("ldrfloatsearch-"+theme))
                     .cornerRadius(13, antialiased: true)
-                    RefreshableScrollView(refreshing: Binding(get: {
-                        karen.manualRefresh
-                    }, set: { (val) in
-                        karen.manualRefresh=true
-                        karen.updateData()
-                        generateHaptic(hap: .heavy)
-                    }), arrowColor: .init("ldrtxt-"+theme),
-                    content: {
+                    ScrollView {
                         VStack(spacing:0) {
                             ForEach((0..<karen.searchedParticipants.count), id:\.self) { index in
                                 let thisParticipant=karen.searchedParticipants[index]
@@ -142,7 +135,7 @@ struct ContentView: View {
                                 }
                             }
                         }
-                    })
+                    }
                 }.background(Color.init("ldrfloat-"+theme))
                 .cornerRadius(13, antialiased: true)
             }.padding(.horizontal,15)

@@ -47,12 +47,7 @@ struct AddScoreView: View {
                 .cornerRadius(12)
                 .padding(.horizontal,13)
             } else {
-                RefreshableScrollView(refreshing: Binding(get: {
-                    karen.refreshing
-                }, set: { (val) in
-                    karen.updateData()
-                    generateHaptic(hap: .heavy)
-                }), arrowColor: .black, content: {
+                ScrollView {
                     VStack(spacing:0) {
                         ForEach((0..<karen.searchedParticipants.count), id:\.self) { index in
                             let currentParticipant=karen.searchedParticipants[index]
@@ -73,7 +68,7 @@ struct AddScoreView: View {
                             }
                         }
                     }
-                }).background(Color.init("ViewFloat"))
+                }.background(Color.init("ViewFloat"))
                 .cornerRadius(12)
                 .padding(.horizontal,13)
                 .sheet(isPresented: Binding(get: {
