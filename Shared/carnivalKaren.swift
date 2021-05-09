@@ -92,6 +92,7 @@ let deltaTimeInterval: Double = -600
 
 class carnivalKaren: ObservableObject {
     var refreshing: Bool=false
+    @Published var manualRefresh=false
     @Published var theme: String="mid"
     
     #if os(iOS)
@@ -259,6 +260,8 @@ class carnivalKaren: ObservableObject {
 //            return a.lastUpdated>b.lastUpdated
 //        }
 //        print(sortedEntries)
+        print("new table")
+        print(newParticipantMasterTable)
         if newParticipantMasterTable != participantMasterTable {
             print("Delta in master table. updating...")
             if !Thread.isMainThread {
@@ -274,13 +277,15 @@ class carnivalKaren: ObservableObject {
         refreshPinnedList()
     }
     
+    var lastFetchEntries: Date?
+    
     //MARK: Fetch raw data from the servers
     func getParticipants() -> [String:String] {
         var nxtParticipants=[String: String]()
         let participantsQuery=LCQuery(className: "participant")
         let count=participantsQuery.count().intValue
         var gotten=0
-        participantsQuery.limit=100
+        participantsQuery.limit=1000
         while gotten<count {
             participantsQuery.skip=gotten
             var participantsObj: [LCObject]?
@@ -293,17 +298,23 @@ class carnivalKaren: ObservableObject {
                     }
                 }
             }
-            gotten+=100
+            gotten+=1000
         }
         return nxtParticipants
     }
     
-    func getEntries() -> [Entry] {
+    func refreshEntries() -> Bool {
         var nxtEntries: [Entry]=[]
         let entriesQuery=LCQuery(className: "entry")
+        if lastFetchEntries != nil {
+            entriesQuery.whereKey("createdAt", .greaterThanOrEqualTo(lastFetchEntries!))
+        }
         let count=entriesQuery.count().intValue
+        if count == 0 {
+            return false
+        }
         var gotten=0
-        entriesQuery.limit=100
+        entriesQuery.limit=1000
         while gotten<count {
             entriesQuery.skip=gotten
             var entriesObj: [LCObject]?
@@ -319,28 +330,53 @@ class carnivalKaren: ObservableObject {
                     }
                 }
             }
-            gotten+=100
+            gotten+=1000
         }
-        return nxtEntries
+        entries.append(contentsOf: nxtEntries)
+        lastFetchEntries=Date()
+        return true
     }
     
-    func totalUpdateData() { // purpose: Completely refresh with data from the servers
+    func applicationActive() -> Bool {
+        #if os(macOS)
+        return true
+        #endif
+        #if os(iOS)
+        if Thread.isMainThread {
+            return UIApplication.shared.applicationState != .background
+        } else {
+            var res=true
+            DispatchQueue.main.sync {
+                res=UIApplication.shared.applicationState != .background
+            }
+            return res
+        }
+        #endif
+    }
+    
+    
+    @objc func totalUpdateData(getparticipants: Bool) { // purpose: Completely refresh with data from the servers
         print("Full data update called")
         if refreshing {
             return
         }
         refreshing=true
-        let nxtParticipants=getParticipants()
-        if !nxtParticipants.isEmpty {
+        
+        if getparticipants {
+            let nxtParticipants=getParticipants()
             participantMap=nxtParticipants
         }
         
-        let nxtEntries=getEntries()
-        if nxtEntries != [] {
-            entries=nxtEntries
+        let hasdelta=refreshEntries()
+        if hasdelta || getparticipants {
+            regenerateMaster()
         }
-        regenerateMaster()
-        refreshing=false
+        DispatchQueue.main.async { [self] in
+            refreshing=false
+            if manualRefresh {
+                manualRefresh=false
+            }
+        }
     }
     
     func fillWithFiller() {
@@ -435,8 +471,6 @@ class carnivalKaren: ObservableObject {
         #endif
     }
     
-    var liveEntryQuery: LiveQuery?
-    
     func addObj(object: LCObject) {
         let marginalScore=object["marginalScore"]?.intValue
         let person=object["personID"]?.stringValue
@@ -448,64 +482,13 @@ class carnivalKaren: ObservableObject {
         }
     }
     
-    func attachLiveUpdate() {
-        do {
-            let query=LCQuery(className: "entry")
-            liveEntryQuery = try LiveQuery(query: query, eventHandler: { [self] (liveQuery, event) in
-                switch event {
-                case .create(object: let object):
-                    print("Dynamic create ",object)
-                    addObj(object: object)
-                case .update(object: let object, updatedKeys: let updatedKeys):
-                    if object.objectId?.value != nil {
-                        for i in 0..<entries.count {
-                            if entries[i].id == object.objectId?.value {
-                                entries.remove(at: i)
-                                addObj(object: object)
-                            }
-                        }
-                    }
-                    print("Dynamic update ",object)
-                case .enter(object: let object, updatedKeys: _):
-                    addObj(object: object)
-                    print("Dynamic enter ",object)
-                case .leave(object: let object, updatedKeys: let updatedKeys):
-                    if object.objectId?.value != nil {
-                        for i in 0..<entries.count {
-                            if entries[i].id == object.objectId?.value {
-                                entries.remove(at: i)
-                            }
-                        }
-                    }
-                    print("Dynamic leave ",object)
-                case .delete(object: let object):
-                    if object.objectId?.value != nil {
-                        for i in 0..<entries.count {
-                            if entries[i].id == object.objectId?.value {
-                                entries.remove(at: i)
-                            }
-                        }
-                    }
-                    print("Dynamic delete ",object)
-                default:
-                    break
-                }
-                regenerateMaster()
-            })
-            liveEntryQuery!.subscribe { res in
-                assert(Thread.isMainThread)
-                switch res {
-                case .success:
-                    print("Success")
-                    break
-                case .failure(error: let error):
-                    print("Subscription error")
-                    print(error)
-                }
+    @objc func asyncUpdateData() {
+        DispatchQueue.global(qos: .background).async { [self] in
+            if applicationActive() {
+                totalUpdateData(getparticipants: false)
+            } else {
+                print("Auto update skipped - application in background")
             }
-            print("All done")
-        } catch {
-            print(error)
         }
     }
     
@@ -559,8 +542,9 @@ class carnivalKaren: ObservableObject {
             } catch {
                 fatalError("\(error)")
             }
-            totalUpdateData()
-            attachLiveUpdate()
+            totalUpdateData(getparticipants: true)
+            let autoRefreshTimer=Timer(timeInterval: 3, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
+            RunLoop.main.add(autoRefreshTimer, forMode: .common)
         }
     }
     
