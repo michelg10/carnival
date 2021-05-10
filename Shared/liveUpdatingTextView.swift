@@ -2,12 +2,24 @@ import SwiftUI
 
 #if os(macOS)
 import AppKit
+
+class FocusAwareTextField: NSTextField {
+    var onFocusChange: (Bool) -> Void = { _ in }
+    
+    override func becomeFirstResponder() -> Bool {
+        let textView = window?.fieldEditor(true, for: nil) as? NSTextView
+        onFocusChange(true)
+        return super.becomeFirstResponder()
+    }
+}
+
 struct liveUpdatingTextView: NSViewRepresentable {
     func makeCoordinator() -> Coordinator {
-        return Coordinator(text: $text)
+        return Coordinator(self)
     }
     
     @Binding var text: String
+    @State var isFocus=false
     func updateNSView(_ nsView: NSTextField, context: Context) {
         print("View update")
         nsView.stringValue=text
@@ -26,25 +38,18 @@ struct liveUpdatingTextView: NSViewRepresentable {
     }
     
     class Coordinator: NSObject, NSTextFieldDelegate {
-        @Binding var text: String
-        init(text: Binding<String>) {
-            _text = text
+        let parent: liveUpdatingTextView
+        init(_ textField: liveUpdatingTextView) {
+            self.parent=textField
         }
-        func textFieldDidChangeSelection(_ textField: NSTextField) {
-            print("Text select changed")
-            text = textField.stringValue
+        func controlTextDidEndEditing(_ obj: Notification) {
+            self.parent.isFocus=false
         }
-        func textFieldDidBeginEditing(_ textField: NSTextField) {
-            print("Begins editing")
+        func controlTextDidChange(_ obj: Notification) {
+            guard let textField = obj.object as? NSTextField else { return }
+            self.parent.text = textField.stringValue
         }
-        func textFieldShouldReturn(_ textField: NSTextField) -> Bool {
-            print("Should return")
-            return true
-        }
-        func textFieldShouldEndEditing(_ textField: NSTextField) -> Bool {
-            print("End editing")
-            return true
-        }
+        
     }
     
     var font: NSFont
@@ -54,7 +59,7 @@ struct liveUpdatingTextView: NSViewRepresentable {
     var placeholderColor: NSColor?
     
     func makeNSView(context: Context) -> NSTextField {
-        let rturn=NSTextField()
+        let rturn=FocusAwareTextField()
         rturn.backgroundColor = .clear
         rturn.drawsBackground=false
         rturn.isBordered=false
@@ -75,6 +80,10 @@ struct liveUpdatingTextView: NSViewRepresentable {
         rturn.alignment=textAlignment
         rturn.delegate=context.coordinator
         rturn.focusRingType = .none
+        
+        rturn.onFocusChange = { isFocus in
+            self.isFocus = isFocus
+        }
         return rturn
     }
 }
@@ -102,20 +111,9 @@ struct liveUpdatingTextView: UIViewRepresentable {
         init(text: Binding<String>) {
             _text = text
         }
-        func textFieldDidChangeSelection(_ textField: UITextField) {
-            print("Text select changed")
-            text = textField.text ?? ""
-        }
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            print("Begins editing")
-        }
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            print("Should return")
-            return true
-        }
-        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-            print("End editing")
-            return true
+        func controlTextDidChange(_ obj: Notification) {
+            guard let textField = obj.object as? NSTextField else { return }
+            text=textField.stringValue
         }
     }
     

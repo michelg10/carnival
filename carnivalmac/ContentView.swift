@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var karen: carnivalKaren
+    @State var isFocus=false
     var body: some View {
         let theme=karen.theme
         GeometryReader { geometry in
@@ -71,7 +72,8 @@ struct ContentView: View {
                                         }
                                     }
                                 })
-                            }
+                            }.background(Color.init("ldrfloat-"+theme))
+                            .cornerRadius(17)
                         }.frame(maxWidth:490)
                         VStack(spacing:0) {
                             Text("Recents")
