@@ -126,7 +126,7 @@
 		F00104AC26426BE900F14A11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F00104AD26426BE900F14A11 /* Carnival_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carnival_Clip.entitlements; sourceTree = "<group>"; };
 		F00104C2264277AD00F14A11 /* AdminAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AdminAssets.xcassets; sourceTree = "<group>"; };
-		F00FBC232643621800186BCB /* carnivalmac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carnivalmac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00FBC232643621800186BCB /* Carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00FBC252643621800186BCB /* carnivalmacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalmacApp.swift; sourceTree = "<group>"; };
 		F00FBC272643621800186BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F00FBC292643621B00186BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				F0C81EC326419107005E7E3C /* carnivaladmin.app */,
 				F092DCF626425EB800E0B938 /* carnival.app */,
 				F001049C26426BE600F14A11 /* Carnival Clip.app */,
-				F00FBC232643621800186BCB /* carnivalmac.app */,
+				F00FBC232643621800186BCB /* Carnival.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -400,7 +400,7 @@
 			);
 			name = carnivalmac;
 			productName = carnivalmac;
-			productReference = F00FBC232643621800186BCB /* carnivalmac.app */;
+			productReference = F00FBC232643621800186BCB /* Carnival.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F092DCF526425EB800E0B938 /* carnival */ = {
@@ -871,7 +871,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalmac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = carnivalmac;
+				PRODUCT_NAME = Carnival;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -897,7 +898,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalmac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = carnivalmac;
+				PRODUCT_NAME = Carnival;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};

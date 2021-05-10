@@ -80,9 +80,28 @@ struct ContentView: View {
                                 .font(.system(size: 32, weight: .semibold, design: .default))
                                 .padding(.bottom,11)
                                 .foregroundColor(.init("ldrtxt-"+theme))
-                            ScrollView {
-                                
-                            }.frame(maxWidth: 696)
+                            ScrollView(.vertical, showsIndicators: false, content: {
+                                VStack(spacing:0) {
+                                    ForEach((0..<karen.recentpeople.count), id:\.self) { index in
+                                        let thisParticipant=karen.recentpeople[index]
+                                        ListItem(LastAdd: .init(val: thisParticipant.lastUpdated!.val, from: thisParticipant.lastUpdated!.who),
+                                                 theme: theme,
+                                                 change: getChangeState(cur: thisParticipant.currentRank, lst: thisParticipant.previousRank),
+                                                 rank: thisParticipant.currentRank,
+                                                 name: thisParticipant.name,
+                                                 points: thisParticipant.score
+                                        ).padding(.horizontal,22)
+                                        if index != karen.recentpeople.count-1 {
+                                            Rectangle()
+                                                .frame(height:1)
+                                                .padding(.leading,23)
+                                                .foregroundColor(.init("ldrsep-"+theme))
+                                        }
+                                    }
+                                }.background(Color.init("ldrfloat-"+theme))
+                                .cornerRadius(17)
+                            }).frame(maxWidth: 696)
+                            .cornerRadius(17)
                         }
                     }.padding(.bottom,20)
                 }

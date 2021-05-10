@@ -72,13 +72,19 @@ struct Participant: Equatable, Hashable {
     var id: String
 }
 
+struct participantUpdate:Equatable {
+    var date: Date
+    var who: String
+    var val: Int
+}
+
 struct ParticipantInfo: Equatable {
     var currentRank: Int
     var name: String
     var id: String
     var score: Int
     var previousRank: Int
-    var lastUpdated: Date?
+    var lastUpdated: participantUpdate?
 }
 
 struct playerDetail {
@@ -230,6 +236,54 @@ class carnivalKaren: ObservableObject {
     
     //MARK: End Admin functions
     
+    @Published var recentpeople: [ParticipantInfo]=[]
+    
+    func refreshRecents(idToParticipantMasterIndexMap: [String:Int], newParticipantMasterTable:inout [ParticipantInfo]) {
+        let recentLimit=50
+        
+        for i in entries.sorted(by: { e1, e2 in
+            e1.lastUpdated>e2.lastUpdated
+        }) {
+            guard let participantIndex = idToParticipantMasterIndexMap[i.personID] else {
+                continue
+            }
+            if newParticipantMasterTable[participantIndex].lastUpdated == nil {
+                newParticipantMasterTable[participantIndex].lastUpdated = .init(date: i.lastUpdated, who: i.addSource, val: i.marginalScore)
+            }
+        }
+        var lastUpdatedSortedTable=newParticipantMasterTable.sorted { a, b in
+            if a.lastUpdated == nil && b.lastUpdated == nil {
+                return a.id>b.id
+            }
+            if a.lastUpdated == nil {
+                return false
+            }
+            if b.lastUpdated == nil {
+                return true
+            }
+            if a.lastUpdated!.date==b.lastUpdated!.date {
+                return a.id>b.id
+            }
+            return a.lastUpdated!.date>b.lastUpdated!.date
+        }
+        if lastUpdatedSortedTable.count>recentLimit {
+            lastUpdatedSortedTable.removeSubrange(50..<lastUpdatedSortedTable.count)
+        }
+        for i in 0..<lastUpdatedSortedTable.count {
+            if lastUpdatedSortedTable[i].lastUpdated == nil {
+                lastUpdatedSortedTable.removeSubrange(i..<lastUpdatedSortedTable.count)
+                break
+            }
+        }
+        if lastUpdatedSortedTable != recentpeople {
+            print("Delta in recents table. updating...")
+            DispatchQueue.main.async { [self] in
+                recentpeople=lastUpdatedSortedTable
+                print(recentpeople)
+            }
+        }
+    }
+    
     func regenerateMaster() {
         var newParticipantMasterTable: [ParticipantInfo]=[]
         
@@ -250,18 +304,14 @@ class carnivalKaren: ObservableObject {
         for i in 0..<sortedLastMap.count {
             lastRankDict[sortedLastMap[i].key]=i+1
         }
-
 //        print(sortedInfo)
+        var idToParticipantMasterIndexMap: [String:Int]=[:]
         for i in 0..<sortedInfo.count {
             newParticipantMasterTable.append(.init(currentRank: i+1, name: participantMap[sortedInfo[i].key] ?? "err-\(sortedInfo[i].key)", id: sortedInfo[i].key, score: sortedInfo[i].value, previousRank: lastRankDict[sortedInfo[i].key] ?? -1, lastUpdated: nil))
+            idToParticipantMasterIndexMap[sortedInfo[i].key]=i
         }
-//        print("Sort entries")
-//        let sortedEntries=entries.sorted { a, b in
-//            return a.lastUpdated>b.lastUpdated
-//        }
-//        print(sortedEntries)
-        print("new table")
-        print(newParticipantMasterTable)
+        
+//        print(newParticipantMasterTable)
         if newParticipantMasterTable != participantMasterTable {
             print("Delta in master table. updating...")
             if !Thread.isMainThread {
@@ -271,10 +321,14 @@ class carnivalKaren: ObservableObject {
             } else {
                 self.participantMasterTable=newParticipantMasterTable
             }
+            searchForParticipant(val: playerSearch)
+            #if os(macOS)
+            refreshRecents(idToParticipantMasterIndexMap: idToParticipantMasterIndexMap, newParticipantMasterTable: &newParticipantMasterTable)
+            #endif
+            #if os(iOS)
+            refreshPinnedList()
+            #endif
         }
-//        print("MSTR ",participantMasterTable)
-        searchForParticipant(val: playerSearch)
-        refreshPinnedList()
     }
     
     var lastFetchEntries: Date?

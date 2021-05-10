@@ -35,10 +35,10 @@ struct ListItem: View {
                 .font(.system(size: 18, weight: .medium, design: .default))
                 .foregroundColor(.init("ldrsecfloattxt-"+theme))
             if LastAdd != nil {
-                let startText=(LastAdd!.val>0 ? "+" : "-")+String(LastAdd!.val)
+                let startText=(LastAdd!.val>=0 ? "+" : "")+String(LastAdd!.val)
                 Text(startText+" from "+LastAdd!.from)
                     .padding(.leading,17)
-                    .frame(width:217)
+                    .frame(width:217,alignment: .trailing)
                     .multilineTextAlignment(.trailing)
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundColor(.init("ldr"+(LastAdd!.val>0 ? "up" : "down")+"-"+theme))
