@@ -556,13 +556,13 @@ class carnivalKaren: ObservableObject {
         let calendar = Calendar.current
         var components = calendar.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: dateCurrent)
         
-        components.hour=5
-        components.minute=40
+        components.hour=21
+        components.minute=38
         
         let midTrigger=calendar.date(from: components)
         
-        components.hour=6
-        components.minute=30
+        components.hour=21
+        components.minute=39
         
         let lateTrigger=calendar.date(from: components)
         

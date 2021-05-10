@@ -20,7 +20,7 @@ struct ContentView: View {
                     .frame(width:geometry.frame(in: .global).width, height: geometry.frame(in: .global).height)
                 VStack(spacing:0) {
                     Text("Leaderboards")
-                        .font(.system(size: 40, weight: .semibold, design: .default))
+                        .font(.system(size: 50, weight: .semibold, design: .default))
                         .foregroundColor(.init("ldrtxt-"+theme))
                         .padding(.top,28)
                         .padding(.bottom,27)
@@ -100,9 +100,9 @@ struct ContentView: View {
                                     }
                                 }.background(Color.init("ldrfloat-"+theme))
                                 .cornerRadius(17)
-                            }).frame(maxWidth: 696)
+                            })
                             .cornerRadius(17)
-                        }
+                        }.frame(width:696)
                     }.padding(.bottom,20)
                 }
             }.frame(width:geometry.frame(in: .global).width, height: geometry.frame(in: .global).height)

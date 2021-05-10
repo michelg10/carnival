@@ -20,7 +20,7 @@ struct ListItem: View {
     var name: String
     var points: Int
     var body: some View {
-        HStack {
+        HStack(spacing:0) {
             changeArrow(change: change, theme: theme, size: 20)
                 .frame(width:33,alignment: .leading)
             Text(String(rank))
