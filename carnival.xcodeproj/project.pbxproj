@@ -52,6 +52,7 @@
 		F092DD132642600100E0B938 /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
 		F092DD142642600300E0B938 /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
 		F092DD152642600500E0B938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537C261352620086453D /* Assets.xcassets */; };
+		F0BC3F252648A7B900226BE0 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC3F242648A7B900226BE0 /* ListItem.swift */; };
 		F0C81EC626419107005E7E3C /* carnivaladminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C81EC526419107005E7E3C /* carnivaladminApp.swift */; };
 		F0C81ECD26419109005E7E3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0C81ECC26419109005E7E3C /* Preview Assets.xcassets */; };
 		F0C81EEF26419148005E7E3C /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EE812613F6DE00363DE5 /* ListItem.swift */; };
@@ -148,6 +149,7 @@
 		F0B7EE952614941400363DE5 /* scoreEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoreEditView.swift; sourceTree = "<group>"; };
 		F0B7EE9A26149AB800363DE5 /* modalDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalDismiss.swift; sourceTree = "<group>"; };
 		F0B7EEA026153BAF00363DE5 /* participantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = participantDetail.swift; sourceTree = "<group>"; };
+		F0BC3F242648A7B900226BE0 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		F0C81EC326419107005E7E3C /* carnivaladmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carnivaladmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C81EC526419107005E7E3C /* carnivaladminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivaladminApp.swift; sourceTree = "<group>"; };
 		F0C81ECC26419109005E7E3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				F00FBC252643621800186BCB /* carnivalmacApp.swift */,
 				F00FBC272643621800186BCB /* ContentView.swift */,
+				F0BC3F242648A7B900226BE0 /* ListItem.swift */,
 				F00FBC292643621B00186BCB /* Assets.xcassets */,
 				F00FBC2E2643621B00186BCB /* Info.plist */,
 				F00FBC2F2643621B00186BCB /* carnivalmac.entitlements */,
@@ -721,6 +724,7 @@
 				F00FBC282643621800186BCB /* ContentView.swift in Sources */,
 				F00FBC3326436C6700186BCB /* carnivalKaren.swift in Sources */,
 				F0D81D982645400000A983EF /* liveUpdatingTextView.swift in Sources */,
+				F0BC3F252648A7B900226BE0 /* ListItem.swift in Sources */,
 				F0D81D9B26458DF200A983EF /* changeState.swift in Sources */,
 				F00FBC3926436C7900186BCB /* buttonstyles.swift in Sources */,
 				F00FBC262643621800186BCB /* carnivalmacApp.swift in Sources */,

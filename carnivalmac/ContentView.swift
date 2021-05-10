@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var karen: carnivalKaren
-    @State var searchText=""
     var body: some View {
         let theme=karen.theme
         GeometryReader { geometry in
@@ -29,31 +28,56 @@ struct ContentView: View {
                             Text("Top Players")
                                 .font(.system(size: 32, weight: .semibold, design: .default))
                                 .padding(.bottom,11)
+                                .foregroundColor(.init("ldrtxt-"+theme))
                             VStack(spacing:0) {
-                                
+                                HStack {
+                                    Image(systemName: "magnifyingglass")
+                                        .font(.system(size: 20, weight: .medium, design: .default))
+                                        .foregroundColor(.init("ldrsearch-"+theme))
+                                        .padding(.leading,11)
+                                    liveUpdatingTextView(text: Binding(get: {
+                                        karen.playerSearch
+                                    }, set: { val in
+                                        print("I set \(val)")
+                                        karen.playerSearch=val
+                                        karen.searchForParticipant(val: karen.playerSearch)
+                                    }),
+                                                         font: NSFont.systemFont(ofSize: 18, weight: .medium),
+                                                         placeholder: "Search Participants...",
+                                                         textAlignment: .center,
+                                                         color: .init(named: "ldrtxt-"+theme),
+                                                         placeholderColor: .init(named: "ldrsearch-"+theme)
+                                    )
+                                }.frame(maxHeight:39)
+                                .background(Color.init("ldrfloatsearch-"+theme))
+                                .cornerRadius(17)
+                                ScrollView(.vertical, showsIndicators: false, content: {
+                                    VStack(spacing:0) {
+                                        ForEach((0..<karen.searchedParticipants.count), id:\.self) { index in
+                                            let thisParticipant=karen.searchedParticipants[index]
+                                            ListItem(LastAdd: nil,
+                                                     theme: theme,
+                                                     change: getChangeState(cur: thisParticipant.currentRank, lst: thisParticipant.previousRank),
+                                                     rank: thisParticipant.currentRank,
+                                                     name: thisParticipant.name,
+                                                     points: thisParticipant.score
+                                            ).padding(.horizontal,22)
+                                            if index != karen.searchedParticipants.count-1 {
+                                                Rectangle()
+                                                    .frame(height:1)
+                                                    .padding(.leading,23)
+                                                    .foregroundColor(.init("ldrsep-"+theme))
+                                            }
+                                        }
+                                    }
+                                })
                             }
-                            HStack {
-                                Image(systemName: "magnifyingglass")
-                                    .font(.system(size: 20, weight: .medium, design: .default))
-                                    .foregroundColor(.init("ldrsearch-"+theme))
-                                    .padding(.leading,11)
-                                liveUpdatingTextView(text: $searchText,
-                                                     font: NSFont.systemFont(ofSize: 18, weight: .medium),
-                                                     placeholder: "Search Participants...",
-                                                     textAlignment: .center,
-                                                     color: .init(named: "ldrtxt-"+theme),
-                                                     placeholderColor: .init(named: "ldrsearch-"+theme)
-                                )
-                            }.frame(maxWidth: 386.0, maxHeight:39)
-                            .background(Color.init("ldrfloatsearch-"+theme))
-                            .cornerRadius(.greatestFiniteMagnitude)
-                            .padding(.horizontal,20)
-                            RoundedRectangle(cornerRadius: 17)
                         }.frame(maxWidth:490)
                         VStack(spacing:0) {
                             Text("Recents")
                                 .font(.system(size: 32, weight: .semibold, design: .default))
                                 .padding(.bottom,11)
+                                .foregroundColor(.init("ldrtxt-"+theme))
                             ScrollView {
                                 
                             }.frame(maxWidth: 696)

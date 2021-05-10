@@ -3,6 +3,10 @@ import SwiftUI
 #if os(macOS)
 import AppKit
 struct liveUpdatingTextView: NSViewRepresentable {
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(text: $text)
+    }
+    
     @Binding var text: String
     func updateNSView(_ nsView: NSTextField, context: Context) {
         print("View update")
@@ -19,6 +23,28 @@ struct liveUpdatingTextView: NSViewRepresentable {
         }
         nsView.textColor=color
         nsView.alignment=textAlignment
+    }
+    
+    class Coordinator: NSObject, NSTextFieldDelegate {
+        @Binding var text: String
+        init(text: Binding<String>) {
+            _text = text
+        }
+        func textFieldDidChangeSelection(_ textField: NSTextField) {
+            print("Text select changed")
+            text = textField.stringValue
+        }
+        func textFieldDidBeginEditing(_ textField: NSTextField) {
+            print("Begins editing")
+        }
+        func textFieldShouldReturn(_ textField: NSTextField) -> Bool {
+            print("Should return")
+            return true
+        }
+        func textFieldShouldEndEditing(_ textField: NSTextField) -> Bool {
+            print("End editing")
+            return true
+        }
     }
     
     var font: NSFont
@@ -47,6 +73,8 @@ struct liveUpdatingTextView: NSViewRepresentable {
         
         
         rturn.alignment=textAlignment
+        rturn.delegate=context.coordinator
+        rturn.focusRingType = .none
         return rturn
     }
 }

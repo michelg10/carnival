@@ -289,7 +289,7 @@ class carnivalKaren: ObservableObject {
         while gotten<count {
             participantsQuery.skip=gotten
             var participantsObj: [LCObject]?
-            participantsObj=participantsQuery.find().objects
+            participantsObj=participantsQuery.find(cachePolicy: .networkElseCache).objects
             if participantsObj != nil {
                 for i in 0..<participantsObj!.count {
                     let name = participantsObj![i]["name"]?.stringValue
@@ -318,7 +318,7 @@ class carnivalKaren: ObservableObject {
         while gotten<count {
             entriesQuery.skip=gotten
             var entriesObj: [LCObject]?
-            entriesObj=entriesQuery.find().objects
+            entriesObj=entriesQuery.find(cachePolicy: .networkElseCache).objects
             if entriesObj != nil {
                 for i in 0..<entriesObj!.count {
                     let marginalScore = entriesObj![i]["marginalScore"]?.intValue
@@ -326,7 +326,11 @@ class carnivalKaren: ObservableObject {
                     let addSource=entriesObj![i]["addSource"]?.stringValue
                     let addDate=entriesObj![i]["dateAdded"]?.dateValue
                     if marginalScore != nil && person != nil && addSource != nil && addDate != nil {
-                        nxtEntries.append(.init(id: entriesObj![i].objectId!.value, lastUpdated: addDate!, marginalScore: marginalScore!, personID: person!, addSource: addSource!))
+                        if !entries.contains(where: { entryElement in
+                            entryElement.id == entriesObj![i].objectId!.value
+                        }) {
+                            nxtEntries.append(.init(id: entriesObj![i].objectId!.value, lastUpdated: addDate!, marginalScore: marginalScore!, personID: person!, addSource: addSource!))
+                        }
                     }
                 }
             }
@@ -538,12 +542,20 @@ class carnivalKaren: ObservableObject {
         } else {
 //            LCApplication.logLevel = .all
             do {
-                try LCApplication.default.set(id: "P2xVk27v7eW0a5JbatguaCtr-gzGzoHsz", key: "3E7b55rmm1VSiNRRF0tIN5xI", serverURL: "https://p2xvk27v.lc-cn-n1-shared.com", configuration: .default)
+                var configuration = LCApplication.Configuration.default
+                configuration.HTTPURLCache = URLCache(
+                    // 内存缓存容量，100 MB
+                    memoryCapacity: 100 * 1024 * 1024,
+                    // 磁盘缓存容量，100 MB
+                    diskCapacity: 100 * 1024 * 1024,
+                    // `nil` 表示使用系统默认的缓存路径，你也可以自定义路径
+                    diskPath: nil)
+                try LCApplication.default.set(id: "P2xVk27v7eW0a5JbatguaCtr-gzGzoHsz", key: "3E7b55rmm1VSiNRRF0tIN5xI", serverURL: "https://p2xvk27v.lc-cn-n1-shared.com", configuration: configuration)
             } catch {
                 fatalError("\(error)")
             }
             totalUpdateData(getparticipants: true)
-            let autoRefreshTimer=Timer(timeInterval: 3, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
+            let autoRefreshTimer=Timer(timeInterval: 10, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
             RunLoop.main.add(autoRefreshTimer, forMode: .common)
         }
     }
