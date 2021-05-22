@@ -550,42 +550,15 @@ class carnivalKaren: ObservableObject {
         }
     }
     
+    func getIntConstant(key: String) -> Int? {
+        let entriesQuery=LCQuery(className: "constants")
+        entriesQuery.whereKey("name", .equalTo(key))
+        let obj=entriesQuery.getFirst()
+        return obj.object?["value"]?.intValue
+    }
+    
     func sharedInit(isPreview: Bool) {
         loadData()
-        let dateCurrent = Date()
-        let calendar = Calendar.current
-        var components = calendar.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: dateCurrent)
-        
-        components.hour=21
-        components.minute=38
-        
-        let midTrigger=calendar.date(from: components)
-        
-        components.hour=21
-        components.minute=39
-        
-        let lateTrigger=calendar.date(from: components)
-        
-        let changeThemes = (midTrigger != nil) && (lateTrigger != nil)
-        
-        if changeThemes {
-            if Date() < midTrigger! {
-                changeThemeEarly()
-            } else if Date()<lateTrigger! {
-                changeThemeMid()
-            } else {
-                changeThemeLate()
-            }
-            if Date()<lateTrigger! {
-                let timer = Timer(fireAt: lateTrigger!, interval: 0, target: self, selector: #selector(changeThemeLate), userInfo: nil, repeats: false)
-                RunLoop.main.add(timer, forMode: .common)
-            }
-            if Date()<midTrigger! {
-                let timer = Timer(fireAt: midTrigger!, interval: 0, target: self, selector: #selector(changeThemeMid), userInfo: nil, repeats: false)
-                RunLoop.main.add(timer, forMode: .common)
-            }
-        }
-        
         
         if isPreview {
             for i in 0..<previewNames.count {
@@ -608,6 +581,41 @@ class carnivalKaren: ObservableObject {
             } catch {
                 fatalError("\(error)")
             }
+            
+            let dateCurrent = Date()
+            let calendar = Calendar.current
+            var components = calendar.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: dateCurrent)
+            
+            components.hour=getIntConstant(key: "midChangeHour") ?? 0
+            components.minute=getIntConstant(key: "midChangeMinute") ?? 0
+            
+            let midTrigger=calendar.date(from: components)
+            
+            components.hour=getIntConstant(key: "lateChangeHour") ?? 23
+            components.minute=getIntConstant(key: "lateChangeHour") ?? 59
+            
+            let lateTrigger=calendar.date(from: components)
+            
+            let changeThemes = (midTrigger != nil) && (lateTrigger != nil)
+            
+            if changeThemes {
+                if Date() < midTrigger! {
+                    changeThemeEarly()
+                } else if Date()<lateTrigger! {
+                    changeThemeMid()
+                } else {
+                    changeThemeLate()
+                }
+                if Date()<lateTrigger! {
+                    let timer = Timer(fireAt: lateTrigger!, interval: 0, target: self, selector: #selector(changeThemeLate), userInfo: nil, repeats: false)
+                    RunLoop.main.add(timer, forMode: .common)
+                }
+                if Date()<midTrigger! {
+                    let timer = Timer(fireAt: midTrigger!, interval: 0, target: self, selector: #selector(changeThemeMid), userInfo: nil, repeats: false)
+                    RunLoop.main.add(timer, forMode: .common)
+                }
+            }
+            
             totalUpdateData(getparticipants: true)
             let autoRefreshTimer=Timer(timeInterval: 10, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
             RunLoop.main.add(autoRefreshTimer, forMode: .common)

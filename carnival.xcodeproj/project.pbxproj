@@ -13,7 +13,6 @@
 		E7DF7832D08D962C97C844DF /* Pods_carnivalmac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117D226B48A36AC04578CA68 /* Pods_carnivalmac.framework */; };
 		F00104962642627900F14A11 /* apprecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00104952642627900F14A11 /* apprecognizers.swift */; };
 		F00104972642627900F14A11 /* apprecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00104952642627900F14A11 /* apprecognizers.swift */; };
-		F00104A826426BE900F14A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00104A726426BE900F14A11 /* Assets.xcassets */; };
 		F00104AB26426BE900F14A11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00104A926426BE900F14A11 /* LaunchScreen.storyboard */; };
 		F00104B026426BE900F14A11 /* Carnival Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = F001049C26426BE600F14A11 /* Carnival Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F00104B526426CE700F14A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DCF826425EB800E0B938 /* AppDelegate.swift */; };
@@ -31,7 +30,7 @@
 		F00104C3264277AD00F14A11 /* AdminAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00104C2264277AD00F14A11 /* AdminAssets.xcassets */; };
 		F00FBC262643621800186BCB /* carnivalmacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00FBC252643621800186BCB /* carnivalmacApp.swift */; };
 		F00FBC282643621800186BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00FBC272643621800186BCB /* ContentView.swift */; };
-		F00FBC2A2643621B00186BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00FBC292643621B00186BCB /* Assets.xcassets */; };
+		F00FBC2A2643621B00186BCB /* MacAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00FBC292643621B00186BCB /* MacAssets.xcassets */; };
 		F00FBC2D2643621B00186BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00FBC2C2643621B00186BCB /* Preview Assets.xcassets */; };
 		F00FBC3326436C6700186BCB /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
 		F00FBC3426436C6A00186BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D6537C261352620086453D /* Assets.xcassets */; };
@@ -65,6 +64,7 @@
 		F0C81EF626419161005E7E3C /* previewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653B0261352AF0086453D /* previewData.swift */; };
 		F0C81EF726419163005E7E3C /* carnivalKaren.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D653AB261352910086453D /* carnivalKaren.swift */; };
 		F0C81EFB264191E3005E7E3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = F0C81EFA264191E3005E7E3C /* SwiftUIRefresh */; };
+		F0D65DC526536415001A68DD /* AccessAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092DD0126425EBA00E0B938 /* AccessAssets.xcassets */; };
 		F0D81D982645400000A983EF /* liveUpdatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092DC7526421D6D00E0B938 /* liveUpdatingTextView.swift */; };
 		F0D81D9A26458DCB00A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
 		F0D81D9B26458DF200A983EF /* changeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D81D9926458DCB00A983EF /* changeState.swift */; };
@@ -121,7 +121,6 @@
 		E6B2C8AA174679B221F0D493 /* Pods-carnival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carnival.debug.xcconfig"; path = "Target Support Files/Pods-carnival/Pods-carnival.debug.xcconfig"; sourceTree = "<group>"; };
 		F00104952642627900F14A11 /* apprecognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apprecognizers.swift; sourceTree = "<group>"; };
 		F001049C26426BE600F14A11 /* Carnival Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carnival Clip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F00104A726426BE900F14A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F00104AA26426BE900F14A11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F00104AC26426BE900F14A11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F00104AD26426BE900F14A11 /* Carnival_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carnival_Clip.entitlements; sourceTree = "<group>"; };
@@ -129,7 +128,7 @@
 		F00FBC232643621800186BCB /* Carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00FBC252643621800186BCB /* carnivalmacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivalmacApp.swift; sourceTree = "<group>"; };
 		F00FBC272643621800186BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F00FBC292643621B00186BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F00FBC292643621B00186BCB /* MacAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MacAssets.xcassets; sourceTree = "<group>"; };
 		F00FBC2C2643621B00186BCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F00FBC2E2643621B00186BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F00FBC2F2643621B00186BCB /* carnivalmac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = carnivalmac.entitlements; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		F0C81EC526419107005E7E3C /* carnivaladminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carnivaladminApp.swift; sourceTree = "<group>"; };
 		F0C81ECC26419109005E7E3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F0C81ECE26419109005E7E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D34FD9265415BF008D301E /* carnival.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = carnival.entitlements; sourceTree = "<group>"; };
 		F0D6537A261352610086453D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0D6537C261352620086453D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0D6537F261352620086453D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -243,7 +243,6 @@
 		F001049D26426BE600F14A11 /* Carnival Clip */ = {
 			isa = PBXGroup;
 			children = (
-				F00104A726426BE900F14A11 /* Assets.xcassets */,
 				F00104A926426BE900F14A11 /* LaunchScreen.storyboard */,
 				F00104AC26426BE900F14A11 /* Info.plist */,
 				F00104AD26426BE900F14A11 /* Carnival_Clip.entitlements */,
@@ -257,7 +256,7 @@
 				F00FBC252643621800186BCB /* carnivalmacApp.swift */,
 				F00FBC272643621800186BCB /* ContentView.swift */,
 				F0BC3F242648A7B900226BE0 /* ListItem.swift */,
-				F00FBC292643621B00186BCB /* Assets.xcassets */,
+				F00FBC292643621B00186BCB /* MacAssets.xcassets */,
 				F00FBC2E2643621B00186BCB /* Info.plist */,
 				F00FBC2F2643621B00186BCB /* carnivalmac.entitlements */,
 				F00FBC2B2643621B00186BCB /* Preview Content */,
@@ -276,6 +275,7 @@
 		F092DCF726425EB800E0B938 /* carnival */ = {
 			isa = PBXGroup;
 			children = (
+				F0D34FD9265415BF008D301E /* carnival.entitlements */,
 				F092DC712641A09B00E0B938 /* rankentry.swift */,
 				F0D6537A261352610086453D /* ContentView.swift */,
 				F092DCC3264259F700E0B938 /* Main.storyboard */,
@@ -499,8 +499,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00104AB26426BE900F14A11 /* LaunchScreen.storyboard in Resources */,
-				F00104A826426BE900F14A11 /* Assets.xcassets in Resources */,
 				F00104B726426D0C00F14A11 /* Assets.xcassets in Resources */,
+				F0D65DC526536415001A68DD /* AccessAssets.xcassets in Resources */,
 				F00104B626426CF200F14A11 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +511,7 @@
 			files = (
 				F00FBC2D2643621B00186BCB /* Preview Assets.xcassets in Resources */,
 				F00FBC3426436C6A00186BCB /* Assets.xcassets in Resources */,
-				F00FBC2A2643621B00186BCB /* Assets.xcassets in Resources */,
+				F00FBC2A2643621B00186BCB /* MacAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,9 +815,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Carnival Clip/Carnival_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				INFOPLIST_FILE = "Carnival Clip/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -837,9 +838,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Carnival Clip/Carnival_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				INFOPLIST_FILE = "Carnival Clip/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -855,11 +857,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C9A3419E08773FF20B553A2 /* Pods-carnivalmac.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = carnivalmac/carnivalmac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"carnivalmac/Preview Content\"";
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -869,8 +872,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalmac;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnival;
 				PRODUCT_MODULE_NAME = carnivalmac;
 				PRODUCT_NAME = Carnival;
 				SDKROOT = macosx;
@@ -882,11 +885,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 960DEDD1A9FA6E0A973B106B /* Pods-carnivalmac.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = carnivalmac/carnivalmac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"carnivalmac/Preview Content\"";
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -896,8 +900,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnivalmac;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.legitmichel777.carnival;
 				PRODUCT_MODULE_NAME = carnivalmac;
 				PRODUCT_NAME = Carnival;
 				SDKROOT = macosx;
@@ -912,10 +916,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = carnival/carnival.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				INFOPLIST_FILE = carnival/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -934,10 +940,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = carnival/carnival.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				INFOPLIST_FILE = carnival/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -953,14 +961,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F26C12AF48E2056382ED5887 /* Pods-carnivaladmin.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AdminIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"carnivaladmin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = carnivaladmin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -976,14 +985,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CA5DC7A9AEE48190F0F3416 /* Pods-carnivaladmin.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AdminIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"carnivaladmin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9K2XM38XLK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = carnivaladmin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -111,9 +111,20 @@ struct liveUpdatingTextView: UIViewRepresentable {
         init(text: Binding<String>) {
             _text = text
         }
-        func controlTextDidChange(_ obj: Notification) {
-            guard let textField = obj.object as? NSTextField else { return }
-            text=textField.stringValue
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            print("Text select changed")
+            text = textField.text ?? ""
+        }
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+            print("Begins editing")
+        }
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            print("Should return")
+            return true
+        }
+        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+            print("End editing")
+            return true
         }
     }
     

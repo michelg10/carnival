@@ -28,7 +28,7 @@
 		<key>Carnival Clip.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>14</integer>
 		</dict>
 		<key>CustomizedDecodingOfDatabaseRows (Playground) 1.xcscheme</key>
 		<dict>
@@ -122,7 +122,7 @@
 		<key>carnivaladmin.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>13</integer>
 		</dict>
 		<key>carnivalmac.xcscheme_^#shared#^_</key>
 		<dict>
