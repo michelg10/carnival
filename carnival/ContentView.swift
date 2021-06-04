@@ -140,7 +140,7 @@ struct ContentView: View {
                 .cornerRadius(13, antialiased: true)
             }.padding(.horizontal,15)
             .padding(.bottom,29)
-        }.ignoresSafeArea(.keyboard)
+        }
     }
 }
 

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIRefresh
 
 struct AddScoreView: View {
     @ObservedObject var karen: carnivalKaren
@@ -114,7 +113,10 @@ struct AddScoreView: View {
             .sheet(isPresented: $editViewPresent, content: {
                 scoreEditView(karen: karen)
             })
-        }
+        }.background(Color.init("overrideBgColor"))
+        .onAppear(perform: {
+            UIApplication.shared.handleKeyboard()
+        })
     }
 }
 

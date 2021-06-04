@@ -234,6 +234,18 @@ class carnivalKaren: ObservableObject {
         }
     }
     
+    func batchInsert(toIns: [String]) {
+        for i in toIns {
+            do {
+                let nxtScore=LCObject(className: "participant")
+                try nxtScore.set("name", value: i)
+                nxtScore.save()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
     //MARK: End Admin functions
     
     @Published var recentpeople: [ParticipantInfo]=[]
@@ -619,6 +631,7 @@ class carnivalKaren: ObservableObject {
             totalUpdateData(getparticipants: true)
             let autoRefreshTimer=Timer(timeInterval: 10, target: self, selector: #selector(asyncUpdateData), userInfo: nil, repeats: true)
             RunLoop.main.add(autoRefreshTimer, forMode: .common)
+//            batchInsert(toIns: ["Adam","Addison","Adele","Adrian","Aimee","Aine","Akihiko","Alan 10-3","Alan 9-6","Alex 10-10","Alex 9-1","Alex 9-8","Alexandria","Alicia 9-2","Alicia 9-7","Amanda","Amelia","Amy 9-2","Amy 9-9","Andrew 10-9","Andrew He 9-9","Andrew Wang 9-9","Angela 9-11","Angela 9-2","Angelica","Angelina","Anna","Annabelle","Ariel ","Asia","Austin","Bella","Bernice","Breeze","Brian 10-11","Brian 10-4","Bridget","Bryce","Camillle","Catherine","Cathy ","Celine ","Chantelle","Chao Ren","Charlie 10-4","Charlie 10-5","Charlie 10-6","Chelsea","Chloe 10-3","Chloe 10-4","Chloe 10-9","Chloe 9-6","Christina","Cindy ","Claire 10-7","Claire 10-8","Cynthia","Daisy","Daniel ","Daryll","David 10-3","David 10-4","David 9-4","Derek","Dewei Tan","Dylan","Eason 9-1","Eason 9-6","Eddie","Edouard","Edwards","Eileen","Elaine 10-10","Elaine 10-4","Elisa","Elizabeth ","Ella","Emily 9-10","Emily 9-4","Emily 9-7","Emma 10-1","Emma 9-3","Eric 10-3","Eric 10-9","Ethan ","Eunice ","Eva ","Evan","Feifei","Fiona ","Fukuga","George 10-11","George 10-7","Gigi","Gwen","Haige","Hannah","Harace","Harold","Harvey","Henrik","Henry 10-10","Henry 10-5","Hiromi ","Hugo","Ian","Irene","Isabelle","Jaeha","Jake ","James","Jared","Jason","Jason 10-8","Jason 9-3","Jeremy","Jerry 10-6","Jerry 9-3","Jerry 9-7","Jessica 9-5","Jessica 9-8","Jialong","Jihee","Jin","Jisung ","Jiwon ","Joey","Jonathan 9-12","Jonathan 9-5","Josh","Joshua ","Joy","Joyce 10-10","Joyce 9-3","Jun","Justin 10-1","Justin 10-6","Katherine","Ken Ogawa","Kenshin Isono","Kevin ","Kitty","Kristen ","Lachlan Wong","Lauren","Leo ","Leon","Leonie","Leyan Hu","Lily","Lim Ze Khai (ZK)","Linxiang Sheng","Lisa","Louis 10-3","Louis 10-8","Luna","Lynn 10-10","Lynn 9-4","Maddie","Maggie","Margaret","Matthew","Matthias ","Max 10-1","Max 9-3","Max 9-4","Maxwell ","Maya 9-8","Maya Kawakami 10-3","Maya Ravindran 10-3","Mia ","Michael","Michelle 9-3","Michelle 9-6","Mike ","Miki","Minchan","Mingi ","Murong Almerheim","Nelson","Nick","Nikos ","Nina","Oliver","Oscar","Parisa","Rachel","Rain ","Ray ","Raymond","Richard","Risae ","Roger","Rowena","Ryan","Ryogo","Sara Osone","Sarah 10-4","Sarah 10-6","Sarah 10-8","Sean","Serena ","Sherry","Sihoon","Sisi","Sky","Song ","Sophia ","Sophie 9-2","Sophie 9-3","Stella ","Stephanie","Steven 10-7","Steven 9-3","Steven 9-9","Sunny","Tesslyn ","Tiffany ","Timothy ","Tony 9-6","Tony 9-8","Veronica","Vicky","Victoria 10-8","Victoria 9-11","Victoria 9-9","Virginia","Vivian","Wakana","Warren","Weiv","William ","Yanxi","Yiming","YiYi","Yoyo","Yulanda","Yun Ha","YunYi","Yuri","Yutong"])
         }
     }
     

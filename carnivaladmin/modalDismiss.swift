@@ -27,7 +27,6 @@ struct modalDismiss: View {
                         .padding(.top,horizontalSizeClass == .regular ? 3 : 4)
                 }.padding(.horizontal,20)
             }).buttonStyle(topBarButtonStyle())
-            .hoverEffect(.lift)
             Spacer()
         }.padding(.top,20)
     }
